@@ -1,0 +1,56 @@
+amends "package://github.com/jdx/hk/releases/download/v1.36.0/hk@1.36.0#/Config.pkl"
+
+import "package://github.com/jdx/hk/releases/download/v1.36.0/hk@1.36.0#/Builtins.pkl"
+
+local linters = new Mapping<String, Step> {
+  ["nixfmt"] {
+    glob = List("**/*.nix")
+    check = "nix-shell -p nixfmt-rfc-style --run 'nixfmt --check {{files}}'"
+    fix = "nix-shell -p nixfmt-rfc-style --run 'nixfmt {{files}}'"
+  }
+  ["deadnix"] {
+    glob = List("**/*.nix")
+    check = "nix-shell -p deadnix --run 'deadnix --fail {{files}}'"
+    fix = "nix-shell -p deadnix --run 'deadnix --edit {{files}}'"
+  }
+  ["statix"] {
+    glob = List("**/*.nix")
+    check = "nix-shell -p statix --run 'statix check .'"
+    fix = "nix-shell -p statix --run 'statix fix .'"
+  }
+  ["shellcheck"] = Builtins.shellcheck
+  ["shfmt"] = Builtins.shfmt
+  ["taplo"] = Builtins.taplo
+  ["pkl"] = Builtins.pkl
+  ["yamllint"] {
+    glob = List("**/*.yml", "**/*.yaml")
+    check = "nix-shell -p yamllint --run 'yamllint {{files}}'"
+  }
+  ["markdownlint"] {
+    glob = List("**/*.md", "**/*.markdown")
+    depends = List("readme-vars")
+    check = "markdownlint-cli2 {{files}}"
+    fix = "markdownlint-cli2 --fix {{files}}"
+  }
+}
+
+hooks {
+  ["pre-commit"] {
+    fix = true
+    stash = "git"
+    steps {
+      ...linters
+      ["readme-vars"] {
+        glob = List("tools/*.nix")
+        fix = "mise run readme-vars && git add README.md"
+      }
+    }
+  }
+  ["pre-push"] {
+    steps {
+      ["nix-flake-check"] {
+        check = "nix flake check"
+      }
+    }
+  }
+}
