@@ -1,3 +1,6 @@
+# Template
+
+```nix
 {
   name = "APP_OR_BINARY_NAME";
   meta = {
@@ -9,3 +12,4 @@
     OPT_OUT_KEY = "OPT_OUT_VALUE";
   };
 }
+```
