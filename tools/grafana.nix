@@ -1,0 +1,11 @@
+{
+  name = "grafana";
+  meta = {
+    description = "Grafana open-source observability platform";
+    homepage = "https://github.com/grafana/grafana";
+    documentation = "https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/";
+  };
+  variables = {
+    GF_ANALYTICS_REPORTING_ENABLED = "false";
+  };
+}
