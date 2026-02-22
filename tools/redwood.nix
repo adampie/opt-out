@@ -4,8 +4,10 @@
     description = "RedwoodJS full-stack web framework";
     homepage = "https://github.com/redwoodjs/redwood";
     documentation = "https://telemetry.redwoodjs.com";
+    lastChecked = "2026-02-22";
   };
   variables = {
     REDWOOD_DISABLE_TELEMETRY = "1";
   };
+  commands = { };
 }

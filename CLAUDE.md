@@ -70,10 +70,12 @@ The platform-specific variable attribute differs by target:
     description = "DESCRIPTION_FROM_REPOSITORY_OR_DOCUMENTATION";
     homepage = "LINK_TO_GIT_REPOSITORY";
     documentation = "LINK_TO_DOCUMENTATION_WITH_OPT_OUT_PROOF";
+    lastChecked = "YYYY-MM-DD";
   };
   variables = {
     OPT_OUT_KEY = "OPT_OUT_VALUE";
   };
+  commands = { };
 }
 ```
 
