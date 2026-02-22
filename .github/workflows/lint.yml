@@ -16,8 +16,8 @@ jobs:
       markdown: ${{ steps.filter.outputs.markdown }}
       yaml-toml: ${{ steps.filter.outputs.yaml-toml }}
     steps:
-      - uses: "actions/checkout@v6"
-      - uses: "dorny/paths-filter@v3"
+      - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6
+      - uses: "dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36" # v3
         id: "filter"
         with:
           filters: |
@@ -40,9 +40,9 @@ jobs:
     if: ${{ needs.detect-changes.outputs.nix == 'true' }}
     runs-on: "ubuntu-latest"
     steps:
-      - uses: "actions/checkout@v6"
-      - uses: "DeterminateSystems/determinate-nix-action@v3"
-      - uses: "DeterminateSystems/magic-nix-cache-action@main"
+      - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6
+      - uses: "DeterminateSystems/determinate-nix-action@f9ebef276016dd519d188ee7b71879732418f8b9" # v3
+      - uses: "DeterminateSystems/magic-nix-cache-action@20eea2e172f7f7487136e7a1a2f5b37aeb0e67bd" # main
       - run: "nix flake check"
 
   lint-nix:
@@ -51,9 +51,9 @@ jobs:
     if: ${{ needs.detect-changes.outputs.nix == 'true' }}
     runs-on: "ubuntu-latest"
     steps:
-      - uses: "actions/checkout@v6"
-      - uses: "DeterminateSystems/determinate-nix-action@v3"
-      - uses: "DeterminateSystems/magic-nix-cache-action@main"
+      - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6
+      - uses: "DeterminateSystems/determinate-nix-action@f9ebef276016dd519d188ee7b71879732418f8b9" # v3
+      - uses: "DeterminateSystems/magic-nix-cache-action@20eea2e172f7f7487136e7a1a2f5b37aeb0e67bd" # main
       - run: |
           nix-shell -p statix deadnix nixfmt-rfc-style \
             --run 'statix check . && deadnix . && nixfmt --check .'
@@ -64,9 +64,9 @@ jobs:
     if: ${{ needs.detect-changes.outputs.shell == 'true' }}
     runs-on: "ubuntu-latest"
     steps:
-      - uses: "actions/checkout@v6"
-      - uses: "DeterminateSystems/determinate-nix-action@v3"
-      - uses: "DeterminateSystems/magic-nix-cache-action@main"
+      - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6
+      - uses: "DeterminateSystems/determinate-nix-action@f9ebef276016dd519d188ee7b71879732418f8b9" # v3
+      - uses: "DeterminateSystems/magic-nix-cache-action@20eea2e172f7f7487136e7a1a2f5b37aeb0e67bd" # main
       - run: |
           nix-shell -p shellcheck shfmt \
             --run 'shellcheck scripts/*.sh && shfmt -d scripts/*.sh'
@@ -77,8 +77,8 @@ jobs:
     if: ${{ needs.detect-changes.outputs.markdown == 'true' }}
     runs-on: "ubuntu-latest"
     steps:
-      - uses: "actions/checkout@v6"
-      - uses: "actions/setup-node@v6"
+      - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6
+      - uses: "actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238" # v6
         with:
           node-version: "22"
       - run: "npx markdownlint-cli2 '**/*.md'"
@@ -89,9 +89,9 @@ jobs:
     if: ${{ needs.detect-changes.outputs.yaml-toml == 'true' }}
     runs-on: "ubuntu-latest"
     steps:
-      - uses: "actions/checkout@v6"
-      - uses: "DeterminateSystems/determinate-nix-action@v3"
-      - uses: "DeterminateSystems/magic-nix-cache-action@main"
+      - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6
+      - uses: "DeterminateSystems/determinate-nix-action@f9ebef276016dd519d188ee7b71879732418f8b9" # v3
+      - uses: "DeterminateSystems/magic-nix-cache-action@20eea2e172f7f7487136e7a1a2f5b37aeb0e67bd" # main
       - run: |
           nix-shell -p yamllint taplo \
             --run 'yamllint . && taplo check'
