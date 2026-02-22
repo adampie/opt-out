@@ -4,6 +4,8 @@ name: "Lint"
   pull_request:
     branches:
       - "main"
+permissions:
+  contents: "read"
 jobs:
   detect-changes:
     name: "Detect changes"
