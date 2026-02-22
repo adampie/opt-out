@@ -6,7 +6,8 @@
     documentation = "https://go.dev/doc/telemetry";
     lastChecked = "2026-02-22";
   };
-  # GOTELEMETRY is read-only; telemetry can only be disabled via `go telemetry off` CLI command
   variables = { };
-  commands = { };
+  commands = {
+    disable = "go telemetry off";
+  };
 }
