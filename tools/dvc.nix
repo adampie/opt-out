@@ -11,6 +11,7 @@
     DVC_NO_ANALYTICS = "true";
   };
   commands = {
+    disable = "dvc config core.analytics false";
     status = "dvc config core.analytics";
   };
 }

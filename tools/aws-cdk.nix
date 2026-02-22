@@ -11,6 +11,7 @@
     CDK_DISABLE_CLI_TELEMETRY = "true";
   };
   commands = {
+    disable = "cdk cli-telemetry --disable";
     status = "cdk cli-telemetry --status";
   };
 }

@@ -11,6 +11,7 @@
     GATSBY_TELEMETRY_DISABLED = "1";
   };
   commands = {
+    disable = "gatsby telemetry --disable";
     status = "gatsby telemetry";
   };
 }

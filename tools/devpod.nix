@@ -10,7 +10,5 @@
   variables = {
     DEVPOD_DISABLE_TELEMETRY = "true";
   };
-  commands = {
-    status = "devpod context options";
-  };
+  commands = { };
 }
