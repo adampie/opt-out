@@ -1,0 +1,58 @@
+---
+name: "Lint"
+"on":
+  pull_request:
+    branches:
+      - "main"
+jobs:
+  flake-check:
+    name: "Flake check"
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@v6"
+      - uses: "DeterminateSystems/determinate-nix-action@v3"
+      - uses: "DeterminateSystems/magic-nix-cache-action@main"
+      - run: "nix flake check"
+
+  lint-nix:
+    name: "Lint and format Nix"
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@v6"
+      - uses: "DeterminateSystems/determinate-nix-action@v3"
+      - uses: "DeterminateSystems/magic-nix-cache-action@main"
+      - run: |
+          nix-shell -p statix deadnix nixfmt-rfc-style \
+            --run 'statix check . && deadnix . && nixfmt --check .'
+
+  lint-shell:
+    name: "Lint shell scripts"
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@v6"
+      - uses: "DeterminateSystems/determinate-nix-action@v3"
+      - uses: "DeterminateSystems/magic-nix-cache-action@main"
+      - run: |
+          nix-shell -p shellcheck shfmt \
+            --run 'shellcheck scripts/*.sh && shfmt -d scripts/*.sh'
+
+  lint-markdown:
+    name: "Lint Markdown"
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@v6"
+      - uses: "actions/setup-node@v4"
+        with:
+          node-version: "22"
+      - run: "npx markdownlint-cli2 '**/*.md'"
+
+  lint-yaml-toml:
+    name: "Lint YAML and TOML"
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@v6"
+      - uses: "DeterminateSystems/determinate-nix-action@v3"
+      - uses: "DeterminateSystems/magic-nix-cache-action@main"
+      - run: |
+          nix-shell -p yamllint taplo \
+            --run 'yamllint . && taplo check'
