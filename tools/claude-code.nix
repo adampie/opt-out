@@ -5,6 +5,7 @@
     homepage = "https://github.com/anthropics/claude-code";
     documentation = "https://code.claude.com/docs/en/data-usage#telemetry-services";
     lastChecked = "2026-02-22";
+    hasTelemetry = true;
   };
   variables = {
     DISABLE_TELEMETRY = "1";

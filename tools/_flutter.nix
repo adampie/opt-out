@@ -5,6 +5,7 @@
     homepage = "https://github.com/flutter/flutter";
     documentation = "https://docs.flutter.dev/reference/crash-reporting";
     lastChecked = "2026-02-22";
+    hasTelemetry = true;
   };
   variables = { };
   commands = {

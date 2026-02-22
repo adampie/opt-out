@@ -5,6 +5,7 @@
     homepage = "https://github.com/vercel/next.js";
     documentation = "https://nextjs.org/telemetry";
     lastChecked = "2026-02-22";
+    hasTelemetry = true;
   };
   variables = {
     NEXT_TELEMETRY_DISABLED = "1";

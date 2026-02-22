@@ -5,6 +5,7 @@
     homepage = "https://github.com/jetify-com/devbox";
     documentation = "https://github.com/jetify-com/devbox";
     lastChecked = "2026-02-22";
+    hasTelemetry = true;
   };
   variables = {
     DO_NOT_TRACK = "1";

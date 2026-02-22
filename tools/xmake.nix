@@ -5,6 +5,7 @@
     homepage = "https://github.com/xmake-io/xmake";
     documentation = "https://xmake.io/guide/extras/environment-variables.html";
     lastChecked = "2026-02-22";
+    hasTelemetry = true;
   };
   variables = {
     XMAKE_STATS = "false";

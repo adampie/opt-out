@@ -5,6 +5,7 @@
     homepage = "https://github.com/golang/go";
     documentation = "https://go.dev/doc/telemetry";
     lastChecked = "2026-02-22";
+    hasTelemetry = true;
   };
   variables = { };
   commands = {
