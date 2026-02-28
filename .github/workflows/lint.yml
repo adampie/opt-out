@@ -44,7 +44,7 @@ jobs:
     steps:
       - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6
       - uses: "DeterminateSystems/determinate-nix-action@73327eb48f028efaaf5013656ba216ca3cdeca7b" # v3
-      - uses: "DeterminateSystems/magic-nix-cache-action@20eea2e172f7f7487136e7a1a2f5b37aeb0e67bd" # main
+      - uses: "DeterminateSystems/magic-nix-cache-action@cec65ff6f104850203b152861d3f9e5f1747885d" # main
       - run: "nix flake check"
 
   lint-nix:
@@ -55,7 +55,7 @@ jobs:
     steps:
       - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6
       - uses: "DeterminateSystems/determinate-nix-action@73327eb48f028efaaf5013656ba216ca3cdeca7b" # v3
-      - uses: "DeterminateSystems/magic-nix-cache-action@20eea2e172f7f7487136e7a1a2f5b37aeb0e67bd" # main
+      - uses: "DeterminateSystems/magic-nix-cache-action@cec65ff6f104850203b152861d3f9e5f1747885d" # main
       - run: |
           nix-shell -p statix deadnix nixfmt-rfc-style \
             --run 'statix check . && deadnix . && nixfmt --check .'
@@ -68,7 +68,7 @@ jobs:
     steps:
       - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6
       - uses: "DeterminateSystems/determinate-nix-action@73327eb48f028efaaf5013656ba216ca3cdeca7b" # v3
-      - uses: "DeterminateSystems/magic-nix-cache-action@20eea2e172f7f7487136e7a1a2f5b37aeb0e67bd" # main
+      - uses: "DeterminateSystems/magic-nix-cache-action@cec65ff6f104850203b152861d3f9e5f1747885d" # main
       - run: |
           nix-shell -p shellcheck shfmt \
             --run 'shellcheck scripts/*.sh && shfmt -d scripts/*.sh'
@@ -93,7 +93,7 @@ jobs:
     steps:
       - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6
       - uses: "DeterminateSystems/determinate-nix-action@73327eb48f028efaaf5013656ba216ca3cdeca7b" # v3
-      - uses: "DeterminateSystems/magic-nix-cache-action@20eea2e172f7f7487136e7a1a2f5b37aeb0e67bd" # main
+      - uses: "DeterminateSystems/magic-nix-cache-action@cec65ff6f104850203b152861d3f9e5f1747885d" # main
       - run: |
           nix-shell -p yamllint taplo \
             --run 'yamllint . && taplo check'
