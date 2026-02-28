@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6
       - uses: "DeterminateSystems/determinate-nix-action@f9ebef276016dd519d188ee7b71879732418f8b9" # v3
-      - uses: "DeterminateSystems/update-flake-lock@5909792a83875ddb5dd4b18734534a98a74a709c" # main
+      - uses: "DeterminateSystems/update-flake-lock@e80a657d7603606be0c69b117cfdc240f1e6af88" # main
         with:
           pr-title: "Update flake inputs"
           pr-assignees: "adampie"
