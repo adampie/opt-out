@@ -16,7 +16,7 @@ jobs:
       - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6
         with:
           persist-credentials: false
-      - uses: "DeterminateSystems/determinate-nix-action@f9ebef276016dd519d188ee7b71879732418f8b9" # v3
+      - uses: "DeterminateSystems/determinate-nix-action@73327eb48f028efaaf5013656ba216ca3cdeca7b" # v3
       - uses: "DeterminateSystems/flakehub-push@2dfc76cb508897b15628310c1b0b5699bddd117a" # main
         with:
           name: "adampie/opt-out"
