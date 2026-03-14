@@ -106,6 +106,4 @@ Investigate the tool described in GitHub issue $ARGUMENTS and determine whether 
    - Commit with a clear message describing the addition
    - Push and create a PR using `gh pr create`
    - **Assign the PR to `@adampie`**
-   - **Link to the GitHub issue in the PR body:**
-     - Use `Closes #<number>` if the tool was added (valid env var opt-out found)
-     - Use `Relates to #<number>` if the tool was excluded (`_`-prefixed), since the issue is not resolved
+   - **Link to the GitHub issue in the PR body** with `Closes #<number>`
