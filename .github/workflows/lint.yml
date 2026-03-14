@@ -19,6 +19,8 @@ jobs:
       yaml-toml: ${{ steps.filter.outputs.yaml-toml }}
     steps:
       - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6
+        with:
+          persist-credentials: false
       - uses: "dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36" # v3
         id: "filter"
         with:
@@ -43,6 +45,8 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6
+        with:
+          persist-credentials: false
       - uses: "DeterminateSystems/determinate-nix-action@131015bad844610e5e6300f8a143bf625d3e74f4" # v3
       - uses: "DeterminateSystems/magic-nix-cache-action@cec65ff6f104850203b152861d3f9e5f1747885d" # main
       - run: "nix flake check"
@@ -54,6 +58,8 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6
+        with:
+          persist-credentials: false
       - uses: "DeterminateSystems/determinate-nix-action@131015bad844610e5e6300f8a143bf625d3e74f4" # v3
       - uses: "DeterminateSystems/magic-nix-cache-action@cec65ff6f104850203b152861d3f9e5f1747885d" # main
       - run: |
@@ -67,6 +73,8 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6
+        with:
+          persist-credentials: false
       - uses: "DeterminateSystems/determinate-nix-action@131015bad844610e5e6300f8a143bf625d3e74f4" # v3
       - uses: "DeterminateSystems/magic-nix-cache-action@cec65ff6f104850203b152861d3f9e5f1747885d" # main
       - run: |
@@ -80,6 +88,8 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6
+        with:
+          persist-credentials: false
       - uses: "actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238" # v6
         with:
           node-version: "22"
@@ -92,6 +102,8 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6
+        with:
+          persist-credentials: false
       - uses: "DeterminateSystems/determinate-nix-action@131015bad844610e5e6300f8a143bf625d3e74f4" # v3
       - uses: "DeterminateSystems/magic-nix-cache-action@cec65ff6f104850203b152861d3f9e5f1747885d" # main
       - run: |
