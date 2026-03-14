@@ -1,7 +1,3 @@
-# Not supported via environment variable.
-# Govulncheck uses the Go toolchain's shared telemetry system.
-# Opt-out requires a CLI command: go telemetry off
-# See tools/_go.nix for the Go toolchain entry.
 {
   name = "govulncheck";
   meta = {
