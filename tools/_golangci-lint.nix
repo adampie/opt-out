@@ -1,5 +1,3 @@
-# No telemetry found.
-# golangci-lint does not collect telemetry or analytics data.
 {
   name = "golangci-lint";
   meta = {

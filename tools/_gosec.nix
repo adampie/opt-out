@@ -1,5 +1,3 @@
-# No telemetry found. gosec is a security scanner that operates entirely locally
-# without collecting or transmitting any usage data or analytics.
 {
   name = "gosec";
   meta = {

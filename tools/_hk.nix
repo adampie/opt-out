@@ -1,5 +1,3 @@
-# No telemetry features found.
-# hk does not collect analytics, telemetry, or crash reports.
 {
   name = "hk";
   meta = {
