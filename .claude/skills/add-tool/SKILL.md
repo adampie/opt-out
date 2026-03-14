@@ -29,11 +29,23 @@ Investigate the tool described in GitHub issue $ARGUMENTS and determine whether 
        description = "<description of the tool itself — do not reference other tools>";
        homepage = "<link to the tool's git repository>";
        documentation = "<link to the specific documentation page proving the env var opt-out>";
+       lastChecked = "YYYY-MM-DD";
+       hasTelemetry = true;
      };
      variables = {
        ENV_VAR_NAME = "value";
      };
+     commands = { };
    }
+   ```
+
+   If the tool also has CLI commands for telemetry (e.g., to check status or disable), add them:
+
+   ```nix
+     commands = {
+       disable = "tool --disable-analytics";
+       status = "tool analytics status";
+     };
    ```
 
    **If NO valid env var opt-out exists**, create `tools/_<toolname>.nix`:
@@ -47,15 +59,22 @@ Investigate the tool described in GitHub issue $ARGUMENTS and determine whether 
        description = "<description of the tool itself — do not reference other tools>";
        homepage = "<link to the tool's git repository>";
        documentation = "<link to relevant documentation>";
+       lastChecked = "YYYY-MM-DD";
+       hasTelemetry = true;
      };
      variables = { };
+     commands = { };
    }
    ```
+
+   Set `hasTelemetry = false;` only if the tool was investigated and confirmed to have no telemetry at all.
 
 6. **Metadata rules:**
    - The `description` must describe only the tool being added. Do not mention other tools, frameworks, or ecosystems.
    - The `homepage` must link to the tool's own repository.
    - The `documentation` must link to the tool's own documentation page that covers telemetry/analytics opt-out.
+   - Set `lastChecked` to today's date in `YYYY-MM-DD` format.
+   - Set `hasTelemetry` to `true` for tools with telemetry (even excluded ones that only have CLI opt-out). Set to `false` only if the tool was investigated and confirmed to have no telemetry.
 
 7. **Stage, format, and validate:**
 
