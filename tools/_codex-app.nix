@@ -3,7 +3,7 @@
   meta = {
     description = "AI coding agent that runs in the terminal";
     homepage = "https://github.com/openai/codex";
-    documentation = "https://github.com/openai/codex/blob/main/codex-rs/core/src/analytics_client.rs";
+    documentation = "https://developers.openai.com/codex/config-reference";
     lastChecked = "2026-03-14";
     hasTelemetry = true;
   };
