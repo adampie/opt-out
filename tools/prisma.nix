@@ -11,4 +11,5 @@
     CHECKPOINT_DISABLE = "1";
   };
   commands = { };
+  config = { };
 }

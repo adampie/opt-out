@@ -11,4 +11,5 @@
     AMPLIFY_DISABLE_TELEMETRY = "1";
   };
   commands = { };
+  config = { };
 }

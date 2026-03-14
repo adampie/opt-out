@@ -11,4 +11,5 @@
     AVALONIA_TELEMETRY_OPTOUT = "1";
   };
   commands = { };
+  config = { };
 }

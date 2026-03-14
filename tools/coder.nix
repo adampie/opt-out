@@ -11,4 +11,5 @@
     CODER_TELEMETRY_ENABLE = "false";
   };
   commands = { };
+  config = { };
 }

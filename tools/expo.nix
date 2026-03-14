@@ -11,4 +11,5 @@
     EXPO_NO_TELEMETRY = "1";
   };
   commands = { };
+  config = { };
 }

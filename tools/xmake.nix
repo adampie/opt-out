@@ -13,4 +13,5 @@
   commands = {
     status = "xmake show -l envs";
   };
+  config = { };
 }

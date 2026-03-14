@@ -13,4 +13,5 @@
   };
   variables = { };
   commands = { };
+  config = { };
 }

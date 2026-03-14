@@ -11,4 +11,5 @@
     DEVPOD_DISABLE_TELEMETRY = "true";
   };
   commands = { };
+  config = { };
 }

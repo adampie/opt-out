@@ -13,4 +13,5 @@
   commands = {
     status = "brew analytics";
   };
+  config = { };
 }

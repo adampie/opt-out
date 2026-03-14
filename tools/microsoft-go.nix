@@ -11,4 +11,5 @@
     MS_GOTOOLCHAIN_TELEMETRY_ENABLED = "0";
   };
   commands = { };
+  config = { };
 }

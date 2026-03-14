@@ -11,4 +11,5 @@
   commands = {
     disable = "npx react-native run-windows --no-telemetry";
   };
+  config = { };
 }
