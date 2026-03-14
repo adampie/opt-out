@@ -51,8 +51,6 @@ Investigate the tool described in GitHub issue $ARGUMENTS and determine whether 
    **If NO valid env var opt-out exists**, create `tools/_<toolname>.nix`:
 
    ```nix
-   # Not supported via environment variable.
-   # <Explain why: e.g., "Opt-out requires CLI: tool --disable-analytics">
    {
      name = "<toolname>";
      meta = {
