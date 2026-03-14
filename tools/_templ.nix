@@ -1,5 +1,3 @@
-# No telemetry implemented.
-# The tool does not collect or send any telemetry, analytics, or crash reports.
 {
   name = "templ";
   meta = {
