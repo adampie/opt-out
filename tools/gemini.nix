@@ -11,4 +11,5 @@
     GEMINI_TELEMETRY_ENABLED = "false";
   };
   commands = { };
+  config = { };
 }

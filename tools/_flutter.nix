@@ -12,4 +12,5 @@
     disable = "flutter --disable-analytics";
     status = "flutter config";
   };
+  config = { };
 }

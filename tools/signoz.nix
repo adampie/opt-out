@@ -11,4 +11,5 @@
     TELEMETRY_ENABLED = "false";
   };
   commands = { };
+  config = { };
 }

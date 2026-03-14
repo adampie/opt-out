@@ -11,4 +11,5 @@
     YARN_ENABLE_TELEMETRY = "0";
   };
   commands = { };
+  config = { };
 }

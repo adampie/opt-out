@@ -40,8 +40,13 @@ hooks {
     stash = "git"
     steps {
       ...linters
+      ["validate-tools"] {
+        glob = List("tools/*.nix")
+        check = "nix eval .#validateAll > /dev/null"
+      }
       ["readme-vars"] {
         glob = List("tools/*.nix")
+        depends = List("validate-tools")
         fix = "mise run readme-vars && git add README.md"
       }
     }

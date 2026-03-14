@@ -11,4 +11,5 @@
     FASTLANE_OPT_OUT_USAGE = "YES";
   };
   commands = { };
+  config = { };
 }

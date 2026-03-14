@@ -14,4 +14,5 @@
     disable = "gatsby telemetry --disable";
     status = "gatsby telemetry";
   };
+  config = { };
 }

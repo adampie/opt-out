@@ -11,4 +11,5 @@
     DISABLE_EVENTS = "1";
   };
   commands = { };
+  config = { };
 }

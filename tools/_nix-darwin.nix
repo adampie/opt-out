@@ -9,4 +9,5 @@
   };
   variables = { };
   commands = { };
+  config = { };
 }

@@ -13,4 +13,5 @@
   commands = {
     status = "next telemetry status";
   };
+  config = { };
 }

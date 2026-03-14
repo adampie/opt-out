@@ -14,4 +14,5 @@
     disable = "ng analytics disable";
     status = "ng analytics info";
   };
+  config = { };
 }

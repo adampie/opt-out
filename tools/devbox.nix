@@ -11,4 +11,5 @@
     DO_NOT_TRACK = "1";
   };
   commands = { };
+  config = { };
 }

@@ -11,4 +11,5 @@
     MEILI_NO_ANALYTICS = "";
   };
   commands = { };
+  config = { };
 }

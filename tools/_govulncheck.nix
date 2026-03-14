@@ -11,4 +11,5 @@
   commands = {
     disable = "go telemetry off";
   };
+  config = { };
 }

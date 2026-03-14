@@ -13,4 +13,5 @@
   commands = {
     status = "turbo telemetry status";
   };
+  config = { };
 }

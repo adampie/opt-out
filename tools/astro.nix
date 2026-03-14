@@ -11,4 +11,5 @@
     ASTRO_TELEMETRY_DISABLED = "1";
   };
   commands = { };
+  config = { };
 }

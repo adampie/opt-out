@@ -13,4 +13,5 @@
   commands = {
     status = "vercel telemetry status";
   };
+  config = { };
 }

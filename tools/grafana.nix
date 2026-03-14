@@ -11,4 +11,5 @@
     GF_ANALYTICS_REPORTING_ENABLED = "false";
   };
   commands = { };
+  config = { };
 }

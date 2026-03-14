@@ -11,4 +11,5 @@
     EARTHLY_DISABLE_ANALYTICS = "1";
   };
   commands = { };
+  config = { };
 }

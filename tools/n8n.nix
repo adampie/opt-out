@@ -11,4 +11,5 @@
     N8N_DIAGNOSTICS_ENABLED = "false";
   };
   commands = { };
+  config = { };
 }

@@ -11,4 +11,5 @@
     STORYBOOK_DISABLE_TELEMETRY = "true";
   };
   commands = { };
+  config = { };
 }

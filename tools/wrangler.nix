@@ -13,4 +13,5 @@
   commands = {
     status = "npx wrangler telemetry status";
   };
+  config = { };
 }

@@ -14,4 +14,5 @@
     disable = "dvc config core.analytics false";
     status = "dvc config core.analytics";
   };
+  config = { };
 }

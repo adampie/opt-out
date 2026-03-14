@@ -13,4 +13,5 @@
   commands = {
     status = "npx nuxt telemetry status";
   };
+  config = { };
 }

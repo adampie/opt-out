@@ -13,4 +13,5 @@
   commands = {
     status = "pio settings get";
   };
+  config = { };
 }

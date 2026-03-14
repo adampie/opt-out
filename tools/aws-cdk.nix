@@ -14,4 +14,5 @@
     disable = "cdk cli-telemetry --disable";
     status = "cdk cli-telemetry --status";
   };
+  config = { };
 }

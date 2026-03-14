@@ -12,4 +12,5 @@
     disable = "go telemetry off";
     status = "go telemetry";
   };
+  config = { };
 }
