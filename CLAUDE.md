@@ -77,6 +77,7 @@ The platform-specific variable attribute differs by target:
     OPT_OUT_KEY = "OPT_OUT_VALUE";
   };
   commands = { };
+  config = { };
 }
 ```
 
@@ -98,7 +99,7 @@ The `name` field becomes the attribute name in all module outputs. No changes to
 
 ### Excluded tools
 
-Files prefixed with `_` (e.g., `tools/_flutter.nix`) represent investigated tools that lack environment variable opt-out. These have an empty `variables = {};` block and a comment explaining why (e.g., CLI-only opt-out). `import-tree` ignores paths containing `/_` by default, so these files are excluded from all flake outputs.
+Files prefixed with `_` (e.g., `tools/_flutter.nix`) represent investigated tools that lack environment variable opt-out. These have an empty `variables = {};` block and use `commands` for CLI-based opt-out or `config` for config-file-based opt-out. `import-tree` ignores paths containing `/_` by default, so these files are excluded from all flake outputs.
 
 ### Criteria for adding a tool
 

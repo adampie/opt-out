@@ -48,7 +48,7 @@ Investigate the tool described in GitHub issue $ARGUMENTS and determine whether 
      };
    ```
 
-   **If NO valid env var opt-out exists**, create `tools/_<toolname>.nix`:
+   **If NO valid env var opt-out exists**, create `tools/_<toolname>.nix` (do **not** add comments explaining why the tool is excluded — the metadata fields are self-documenting):
 
    ```nix
    {
@@ -62,7 +62,18 @@ Investigate the tool described in GitHub issue $ARGUMENTS and determine whether 
      };
      variables = { };
      commands = { };
+     config = { };
    }
+   ```
+
+   If the tool has a config-file-based opt-out, populate the `config` map with the file path as key and key/value settings as the value:
+
+   ```nix
+     config = {
+       "~/.toolname/config.toml" = {
+         "telemetry.enabled" = "false";
+       };
+     };
    ```
 
    Set `hasTelemetry = false;` only if the tool was investigated and confirmed to have no telemetry at all.
@@ -70,7 +81,7 @@ Investigate the tool described in GitHub issue $ARGUMENTS and determine whether 
 6. **Metadata rules:**
    - The `description` must describe only the tool being added. Do not mention other tools, frameworks, or ecosystems.
    - The `homepage` must link to the tool's own repository.
-   - The `documentation` must link to the tool's own documentation page that covers telemetry/analytics opt-out.
+   - The `documentation` must link to the tool's own documentation page that covers telemetry/analytics opt-out. Prefer official website docs over source code links — only link to source code if no public documentation exists.
    - Set `lastChecked` to today's date in `YYYY-MM-DD` format.
    - Set `hasTelemetry` to `true` for tools with telemetry (even excluded ones that only have CLI opt-out). Set to `false` only if the tool was investigated and confirmed to have no telemetry.
 
