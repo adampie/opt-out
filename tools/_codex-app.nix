@@ -1,6 +1,3 @@
-# Codex App has telemetry (analytics events and OpenTelemetry metrics) but
-# opt-out is config-file-based only (analytics.enabled = false in config.toml).
-# No environment variable opt-out exists.
 {
   name = "codex-app";
   meta = {

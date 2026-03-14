@@ -48,7 +48,7 @@ Investigate the tool described in GitHub issue $ARGUMENTS and determine whether 
      };
    ```
 
-   **If NO valid env var opt-out exists**, create `tools/_<toolname>.nix`:
+   **If NO valid env var opt-out exists**, create `tools/_<toolname>.nix` (do **not** add comments explaining why the tool is excluded — the metadata fields are self-documenting):
 
    ```nix
    {
