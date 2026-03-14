@@ -62,7 +62,18 @@ Investigate the tool described in GitHub issue $ARGUMENTS and determine whether 
      };
      variables = { };
      commands = { };
+     config = { };
    }
+   ```
+
+   If the tool has a config-file-based opt-out, populate the `config` map with the file path as key and key/value settings as the value:
+
+   ```nix
+     config = {
+       "~/.toolname/config.toml" = {
+         "telemetry.enabled" = "false";
+       };
+     };
    ```
 
    Set `hasTelemetry = false;` only if the tool was investigated and confirmed to have no telemetry at all.

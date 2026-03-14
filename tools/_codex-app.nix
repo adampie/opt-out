@@ -9,4 +9,9 @@
   };
   variables = { };
   commands = { };
+  config = {
+    "~/.codex/config.toml" = {
+      "analytics.enabled" = "false";
+    };
+  };
 }
