@@ -1,4 +1,3 @@
-# No telemetry or analytics collected.
 {
   name = "goreleaser";
   meta = {
