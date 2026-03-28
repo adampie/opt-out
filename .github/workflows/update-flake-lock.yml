@@ -14,7 +14,7 @@ jobs:
       - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6
         with:
           persist-credentials: false
-      - uses: "DeterminateSystems/determinate-nix-action@131015bad844610e5e6300f8a143bf625d3e74f4" # v3
+      - uses: "DeterminateSystems/determinate-nix-action@a18f73c54ca8525de051e73c31512a67f44df919" # v3
       - uses: "DeterminateSystems/update-flake-lock@e80a657d7603606be0c69b117cfdc240f1e6af88" # main
         with:
           pr-title: "Update flake inputs"
