@@ -48,7 +48,7 @@ jobs:
         with:
           persist-credentials: false
       - uses: "DeterminateSystems/determinate-nix-action@a18f73c54ca8525de051e73c31512a67f44df919" # v3
-      - uses: "DeterminateSystems/magic-nix-cache-action@cec65ff6f104850203b152861d3f9e5f1747885d" # main
+      - uses: "DeterminateSystems/magic-nix-cache-action@1828eb4e5414b8dfe36daae53ea3e4b8c3fdec7a" # main
       - run: "nix eval .#validateAll > /dev/null"
 
   flake-check:
@@ -61,7 +61,7 @@ jobs:
         with:
           persist-credentials: false
       - uses: "DeterminateSystems/determinate-nix-action@a18f73c54ca8525de051e73c31512a67f44df919" # v3
-      - uses: "DeterminateSystems/magic-nix-cache-action@cec65ff6f104850203b152861d3f9e5f1747885d" # main
+      - uses: "DeterminateSystems/magic-nix-cache-action@1828eb4e5414b8dfe36daae53ea3e4b8c3fdec7a" # main
       - run: "nix flake check"
 
   lint-nix:
@@ -74,7 +74,7 @@ jobs:
         with:
           persist-credentials: false
       - uses: "DeterminateSystems/determinate-nix-action@a18f73c54ca8525de051e73c31512a67f44df919" # v3
-      - uses: "DeterminateSystems/magic-nix-cache-action@cec65ff6f104850203b152861d3f9e5f1747885d" # main
+      - uses: "DeterminateSystems/magic-nix-cache-action@1828eb4e5414b8dfe36daae53ea3e4b8c3fdec7a" # main
       - run: |
           nix-shell -p statix deadnix nixfmt-rfc-style \
             --run 'statix check . && deadnix . && nixfmt --check .'
@@ -89,7 +89,7 @@ jobs:
         with:
           persist-credentials: false
       - uses: "DeterminateSystems/determinate-nix-action@a18f73c54ca8525de051e73c31512a67f44df919" # v3
-      - uses: "DeterminateSystems/magic-nix-cache-action@cec65ff6f104850203b152861d3f9e5f1747885d" # main
+      - uses: "DeterminateSystems/magic-nix-cache-action@1828eb4e5414b8dfe36daae53ea3e4b8c3fdec7a" # main
       - run: |
           nix-shell -p shellcheck shfmt \
             --run 'shellcheck scripts/*.sh && shfmt -d scripts/*.sh'
@@ -118,7 +118,7 @@ jobs:
         with:
           persist-credentials: false
       - uses: "DeterminateSystems/determinate-nix-action@a18f73c54ca8525de051e73c31512a67f44df919" # v3
-      - uses: "DeterminateSystems/magic-nix-cache-action@cec65ff6f104850203b152861d3f9e5f1747885d" # main
+      - uses: "DeterminateSystems/magic-nix-cache-action@1828eb4e5414b8dfe36daae53ea3e4b8c3fdec7a" # main
       - run: |
           nix-shell -p yamllint taplo \
             --run 'yamllint . && taplo check'
