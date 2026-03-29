@@ -27,6 +27,7 @@ For non-Nix environments, the opt-out variables are as follows:
 AMPLIFY_DISABLE_TELEMETRY=1 # amplify-cli
 ASTRO_TELEMETRY_DISABLED=1 # astro
 AVALONIA_TELEMETRY_OPTOUT=1 # avalonia
+AZURE_CORE_COLLECT_TELEMETRY=0 # azure-cli
 CDK_DISABLE_CLI_TELEMETRY=true # aws-cdk
 CHECKPOINT_DISABLE=1 # hashicorp
 CHECKPOINT_DISABLE=1 # prisma
