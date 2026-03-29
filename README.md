@@ -24,6 +24,7 @@ For non-Nix environments, the opt-out variables are as follows:
 
 <!-- vars:start -->
 ```sh
+ALGOLIA_CLI_TELEMETRY=0 # algolia-cli
 AMPLIFY_DISABLE_TELEMETRY=1 # amplify-cli
 ASTRO_TELEMETRY_DISABLED=1 # astro
 AVALONIA_TELEMETRY_OPTOUT=1 # avalonia
