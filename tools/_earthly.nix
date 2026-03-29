@@ -4,12 +4,14 @@
     description = "Earthly repeatable CI builds";
     homepage = "https://github.com/earthly/earthly";
     documentation = "https://docs.earthly.dev/docs/misc/data-collection";
-    lastChecked = "2026-02-22";
+    lastChecked = "2026-03-29";
     hasTelemetry = true;
   };
-  variables = {
-    EARTHLY_DISABLE_ANALYTICS = "1";
-  };
+  variables = { };
   commands = { };
-  config = { };
+  config = {
+    "~/.earthly/config.yml" = {
+      "global.disable_analytics" = "true";
+    };
+  };
 }
