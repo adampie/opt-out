@@ -25,6 +25,7 @@ For non-Nix environments, the opt-out variables are as follows:
 <!-- vars:start -->
 ```sh
 AMPLIFY_DISABLE_TELEMETRY=1 # amplify-cli
+APOLLO_TELEMETRY_DISABLED=true # apollo
 ASTRO_TELEMETRY_DISABLED=1 # astro
 AVALONIA_TELEMETRY_OPTOUT=1 # avalonia
 CDK_DISABLE_CLI_TELEMETRY=true # aws-cdk
