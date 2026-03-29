@@ -3,8 +3,8 @@
   meta = {
     description = "Turborepo monorepo build tool";
     homepage = "https://github.com/vercel/turbo";
-    documentation = "https://turbo.build/repo/docs/telemetry";
-    lastChecked = "2026-02-22";
+    documentation = "https://turborepo.dev/repo/docs/telemetry";
+    lastChecked = "2026-03-29";
     hasTelemetry = true;
   };
   variables = {
