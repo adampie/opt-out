@@ -47,7 +47,7 @@ jobs:
       - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6
         with:
           persist-credentials: false
-      - uses: "DeterminateSystems/determinate-nix-action@a18f73c54ca8525de051e73c31512a67f44df919" # v3
+      - uses: "DeterminateSystems/determinate-nix-action@1361e7900eb437fb341f0f226e8fbd9a0d8284fa" # v3
       - uses: "DeterminateSystems/magic-nix-cache-action@1828eb4e5414b8dfe36daae53ea3e4b8c3fdec7a" # main
       - run: "nix eval .#validateAll > /dev/null"
 
@@ -60,7 +60,7 @@ jobs:
       - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6
         with:
           persist-credentials: false
-      - uses: "DeterminateSystems/determinate-nix-action@a18f73c54ca8525de051e73c31512a67f44df919" # v3
+      - uses: "DeterminateSystems/determinate-nix-action@1361e7900eb437fb341f0f226e8fbd9a0d8284fa" # v3
       - uses: "DeterminateSystems/magic-nix-cache-action@1828eb4e5414b8dfe36daae53ea3e4b8c3fdec7a" # main
       - run: "nix flake check"
 
@@ -73,7 +73,7 @@ jobs:
       - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6
         with:
           persist-credentials: false
-      - uses: "DeterminateSystems/determinate-nix-action@a18f73c54ca8525de051e73c31512a67f44df919" # v3
+      - uses: "DeterminateSystems/determinate-nix-action@1361e7900eb437fb341f0f226e8fbd9a0d8284fa" # v3
       - uses: "DeterminateSystems/magic-nix-cache-action@1828eb4e5414b8dfe36daae53ea3e4b8c3fdec7a" # main
       - run: |
           nix-shell -p statix deadnix nixfmt-rfc-style \
@@ -88,7 +88,7 @@ jobs:
       - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6
         with:
           persist-credentials: false
-      - uses: "DeterminateSystems/determinate-nix-action@a18f73c54ca8525de051e73c31512a67f44df919" # v3
+      - uses: "DeterminateSystems/determinate-nix-action@1361e7900eb437fb341f0f226e8fbd9a0d8284fa" # v3
       - uses: "DeterminateSystems/magic-nix-cache-action@1828eb4e5414b8dfe36daae53ea3e4b8c3fdec7a" # main
       - run: |
           nix-shell -p shellcheck shfmt \
@@ -117,7 +117,7 @@ jobs:
       - uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6
         with:
           persist-credentials: false
-      - uses: "DeterminateSystems/determinate-nix-action@a18f73c54ca8525de051e73c31512a67f44df919" # v3
+      - uses: "DeterminateSystems/determinate-nix-action@1361e7900eb437fb341f0f226e8fbd9a0d8284fa" # v3
       - uses: "DeterminateSystems/magic-nix-cache-action@1828eb4e5414b8dfe36daae53ea3e4b8c3fdec7a" # main
       - run: |
           nix-shell -p yamllint taplo \
