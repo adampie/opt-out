@@ -15,7 +15,7 @@ jobs:
         with:
           persist-credentials: false
       - uses: "DeterminateSystems/determinate-nix-action@32cb6a5ae30bb0dfc996fa7baf8bf1ed28442fa4" # v3
-      - uses: "DeterminateSystems/update-flake-lock@3c4f567004c3b0f7bb85177df020f3825028d2b1" # main
+      - uses: "DeterminateSystems/update-flake-lock@ff43f160ef7014ae1a1fd85699fb6a44f436135b" # main
         with:
           pr-title: "Update flake inputs"
           pr-assignees: "adampie"
