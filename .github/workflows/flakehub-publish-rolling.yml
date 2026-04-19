@@ -17,7 +17,7 @@ jobs:
         with:
           persist-credentials: false
       - uses: "DeterminateSystems/determinate-nix-action@32cb6a5ae30bb0dfc996fa7baf8bf1ed28442fa4" # v3
-      - uses: "DeterminateSystems/flakehub-push@1ede6ef7ba5162163da48fd44f005b1d1e6ccd81" # main
+      - uses: "DeterminateSystems/flakehub-push@9247b5d1ea837aef25bb90ed114e351b6b4c4e81" # main
         with:
           name: "adampie/opt-out"
           rolling: true
