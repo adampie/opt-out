@@ -9,6 +9,7 @@
   };
   variables = {
     CODER_TELEMETRY_ENABLE = "false";
+    CODER_DISABLE_NETWORK_TELEMETRY = "true";
   };
   commands = { };
   config = { };
