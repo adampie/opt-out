@@ -42,9 +42,16 @@ run = ["nix develop -c statix check .", "nix develop -c deadnix ."]
 description = "Lint all Markdown files"
 run = "markdownlint-cli2 '**/*.md' '.claude/**/*.md'"
 
+# Enumerated the same way as fmt rather than by a recursive glob, so gitignored
+# trees stay out. A **/*.sh glob would descend into result/ and .direnv/ and lint
+# whatever nix happened to build. -r keeps xargs from running the linter bare on
+# GNU systems when nothing matches.
 [tasks.lint-sh]
 description = "Lint all shell scripts"
-run = "shellcheck scripts/*.sh && shfmt -d scripts/*.sh"
+run = [
+  "git ls-files '*.sh' | xargs -r shellcheck",
+  "git ls-files '*.sh' | xargs -r shfmt -d",
+]
 
 [tasks.lint-toml]
 description = "Lint all TOML files"
