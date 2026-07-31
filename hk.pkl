@@ -1,0 +1,67 @@
+amends "package://github.com/jdx/hk/releases/download/v1.36.0/hk@1.36.0#/Config.pkl"
+
+import "package://github.com/jdx/hk/releases/download/v1.36.0/hk@1.36.0#/Builtins.pkl"
+
+local linters = new Mapping<String, Step> {
+  // Nix linters come from the flake devShell so their versions are pinned by
+  // flake.lock rather than by whatever channel the machine happens to have.
+  ["nixfmt"] {
+    glob = List("**/*.nix")
+    check = "nix develop -c nixfmt --check {{files}}"
+    fix = "nix develop -c nixfmt {{files}}"
+  }
+  ["deadnix"] {
+    glob = List("**/*.nix")
+    check = "nix develop -c deadnix --fail {{files}}"
+    fix = "nix develop -c deadnix --edit {{files}}"
+  }
+  ["statix"] {
+    glob = List("**/*.nix")
+    check = "nix develop -c statix check ."
+    fix = "nix develop -c statix fix ."
+  }
+  ["shellcheck"] = Builtins.shellcheck
+  ["shfmt"] = Builtins.shfmt
+  ["taplo"] = Builtins.taplo
+  ["pkl"] = Builtins.pkl
+  ["yamllint"] {
+    glob = List("**/*.yml", "**/*.yaml")
+    check = "nix develop -c yamllint {{files}}"
+  }
+  ["zizmor"] {
+    glob = List(".github/workflows/*.yml", ".github/workflows/*.yaml")
+    check = "zizmor {{files}}"
+  }
+  ["markdownlint"] {
+    glob = List("**/*.md", "**/*.markdown")
+    depends = List("readme-vars")
+    check = "markdownlint-cli2 {{files}}"
+    fix = "markdownlint-cli2 --fix {{files}}"
+  }
+}
+
+hooks {
+  ["pre-commit"] {
+    fix = true
+    stash = "git"
+    steps {
+      ...linters
+      ["validate-tools"] {
+        glob = List("tools/*.nix")
+        check = "nix eval .#validateAll > /dev/null"
+      }
+      ["readme-vars"] {
+        glob = List("tools/*.nix")
+        depends = List("validate-tools")
+        fix = "mise run readme-vars && git add README.md"
+      }
+    }
+  }
+  ["pre-push"] {
+    steps {
+      ["nix-flake-check"] {
+        check = "nix flake check"
+      }
+    }
+  }
+}
