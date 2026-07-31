@@ -3,7 +3,7 @@ set -euo pipefail
 
 lines=()
 
-for f in tools/*.nix; do
+for f in tools/[!_]*.nix; do
 	name=$(grep -m1 'name = "' "$f" | sed 's/.*"\(.*\)".*/\1/' 2>/dev/null || true)
 	[[ -z "$name" ]] && continue
 
