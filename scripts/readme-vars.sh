@@ -22,13 +22,22 @@ done
 
 mapfile -t sorted < <(printf '%s\n' "${lines[@]}" | sort)
 
+# readme_new is created beside README.md rather than in TMPDIR so the closing mv
+# is a rename within one filesystem. A rename is atomic, so a run interrupted at
+# any point before it leaves the committed README untouched rather than half
+# written. Both temporaries get unpredictable names so a local process cannot
+# pre-create them as symlinks and redirect the writes.
+vars_section=$(mktemp)
+readme_new=$(mktemp ./.README.XXXXXX)
+trap 'rm -f "$vars_section" "$readme_new"' EXIT
+
 {
 	echo '```sh'
 	for line in "${sorted[@]}"; do
 		echo "$line"
 	done
 	echo '```'
-} >/tmp/vars-section.md
+} >"$vars_section"
 
 # Counted as whole lines because the awk below matches them that way. A substring
 # test would disagree with awk, take the replace branch on a near-miss, and write
@@ -37,11 +46,12 @@ start_count=$(grep -c -Fx "$marker_start" "$readme" || true)
 end_count=$(grep -c -Fx "$marker_end" "$readme" || true)
 
 if ((start_count == 0 && end_count == 0)); then
+	cat "$readme" >"$readme_new"
 	{
 		printf '\n%s\n' "$marker_start"
-		cat /tmp/vars-section.md
+		cat "$vars_section"
 		printf '%s\n' "$marker_end"
-	} >>"$readme"
+	} >>"$readme_new"
 elif ((start_count == 1 && end_count == 1)); then
 	start_line=$(grep -n -Fx "$marker_start" "$readme" | cut -d: -f1)
 	end_line=$(grep -n -Fx "$marker_end" "$readme" | cut -d: -f1)
@@ -54,14 +64,18 @@ elif ((start_count == 1 && end_count == 1)); then
 		exit 1
 	fi
 
-	awk -v start="$marker_start" -v end="$marker_end" '
-    $0 == start { print; in_block=1; while ((getline line < "/tmp/vars-section.md") > 0) print line; next }
+	awk -v start="$marker_start" -v end="$marker_end" -v section="$vars_section" '
+    $0 == start { print; in_block=1; while ((getline line < section) > 0) print line; next }
     $0 == end   { in_block=0 }
     !in_block   { print }
-  ' "$readme" >README.tmp && mv README.tmp "$readme"
+  ' "$readme" >"$readme_new"
 else
 	echo "readme-vars: expected one $marker_start and one $marker_end in $readme, found $start_count and $end_count" >&2
 	exit 1
 fi
+
+# mktemp creates 0600 and the rename would carry that onto README.md.
+chmod 644 "$readme_new"
+mv "$readme_new" "$readme"
 
 echo "$readme updated with ${#sorted[@]} variables."
