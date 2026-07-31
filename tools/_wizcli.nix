@@ -9,7 +9,7 @@
   };
   variables = { };
   commands = {
-    disable = "wizcli iac scan --no-telemetry";
+    disable = "wizcli --no-telemetry";
   };
   config = { };
 }
