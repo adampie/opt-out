@@ -3,8 +3,8 @@
   meta = {
     description = "n8n workflow automation platform";
     homepage = "https://github.com/n8n-io/n8n";
-    documentation = "https://docs.n8n.io/hosting/securing/telemetry-opt-out/";
-    lastChecked = "2026-02-22";
+    documentation = "https://docs.n8n.io/deploy/host-n8n/configure-n8n/security/control-telemetry";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {
