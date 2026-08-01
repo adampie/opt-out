@@ -3,15 +3,15 @@
   meta = {
     description = "Nuxt Vue.js framework";
     homepage = "https://github.com/nuxt/telemetry";
-    documentation = "https://v2.nuxt.com/docs/configuration-glossary/configuration-telemetry";
-    lastChecked = "2026-02-22";
+    documentation = "https://github.com/nuxt/telemetry#opting-out";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {
     NUXT_TELEMETRY_DISABLED = "1";
   };
   commands = {
-    status = "npx nuxt telemetry status";
+    status = "npx @nuxt/telemetry status";
   };
   config = { };
 }
