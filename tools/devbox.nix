@@ -4,7 +4,7 @@
     description = "Devbox portable isolated shell environments";
     homepage = "https://github.com/jetify-com/devbox";
     documentation = "https://github.com/jetify-com/devbox";
-    lastChecked = "2026-02-22";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {

@@ -4,7 +4,7 @@
     description = "High-performance, multiplayer code editor";
     homepage = "https://github.com/zed-industries/zed";
     documentation = "https://zed.dev/docs/telemetry";
-    lastChecked = "2026-03-14";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = { };

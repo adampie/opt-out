@@ -4,7 +4,7 @@
     description = "InfluxDB time series database";
     homepage = "https://github.com/influxdata/influxdb";
     documentation = "https://docs.influxdata.com/influxdb/v2/reference/config-options/";
-    lastChecked = "2026-03-29";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {

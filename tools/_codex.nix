@@ -3,8 +3,8 @@
   meta = {
     description = "Lightweight coding agent that runs in the terminal";
     homepage = "https://github.com/openai/codex";
-    documentation = "https://developers.openai.com/codex/config-reference";
-    lastChecked = "2026-03-14";
+    documentation = "https://learn.chatgpt.com/docs/config-file/config-reference";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = { };

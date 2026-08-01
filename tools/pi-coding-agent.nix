@@ -4,7 +4,7 @@
     description = "Terminal-based coding agent";
     homepage = "https://github.com/earendil-works/pi/tree/main/packages/coding-agent";
     documentation = "https://pi.dev/docs/latest/environment-variables#pi-process-configuration";
-    lastChecked = "2026-07-31";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {

@@ -4,7 +4,7 @@
     description = "Gatsby static site generator";
     homepage = "https://github.com/gatsbyjs/gatsby";
     documentation = "https://www.gatsbyjs.com/docs/telemetry";
-    lastChecked = "2026-02-22";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {

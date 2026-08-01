@@ -4,7 +4,7 @@
     description = "Apollo GraphQL Rover CLI";
     homepage = "https://github.com/apollographql/rover";
     documentation = "https://www.apollographql.com/docs/rover/privacy";
-    lastChecked = "2026-03-29";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {

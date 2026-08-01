@@ -4,7 +4,7 @@
     description = "Command-line interface for Electron Forge";
     homepage = "https://github.com/electron/forge";
     documentation = "https://github.com/electron/forge";
-    lastChecked = "2026-03-28";
+    lastChecked = "2026-08-01";
     hasTelemetry = false;
   };
   variables = { };

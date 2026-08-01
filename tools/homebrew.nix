@@ -4,7 +4,7 @@
     description = "macOS and Linux package manager";
     homepage = "https://github.com/Homebrew/brew";
     documentation = "https://docs.brew.sh/Analytics";
-    lastChecked = "2026-02-22";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {
