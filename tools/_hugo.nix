@@ -4,7 +4,7 @@
     description = "Fast and flexible static site generator written in Go";
     homepage = "https://github.com/gohugoio/hugo";
     documentation = "https://gohugo.io/about/privacy/";
-    lastChecked = "2026-03-14";
+    lastChecked = "2026-08-01";
     hasTelemetry = false;
   };
   variables = { };

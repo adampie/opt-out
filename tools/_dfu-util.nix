@@ -4,7 +4,7 @@
     description = "Host side implementation of the USB Device Firmware Upgrade (DFU) specification for downloading and uploading firmware over USB";
     homepage = "https://dfu-util.sourceforge.net/";
     documentation = "https://dfu-util.sourceforge.net/dfu-util.1.html";
-    lastChecked = "2026-07-31";
+    lastChecked = "2026-08-01";
     hasTelemetry = false;
   };
   variables = { };

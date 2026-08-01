@@ -4,7 +4,7 @@
     description = "Angular CLI";
     homepage = "https://github.com/angular/angular-cli";
     documentation = "https://github.com/angular/angular-cli/blob/main/docs/design/analytics.md";
-    lastChecked = "2026-02-22";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {

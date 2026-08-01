@@ -4,7 +4,7 @@
     description = "Earthly repeatable CI builds";
     homepage = "https://github.com/earthly/earthly";
     documentation = "https://docs.earthly.dev/docs/misc/data-collection";
-    lastChecked = "2026-03-29";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = { };

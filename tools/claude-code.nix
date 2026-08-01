@@ -4,7 +4,7 @@
     description = "Anthropic Claude Code CLI";
     homepage = "https://github.com/anthropics/claude-code";
     documentation = "https://code.claude.com/docs/en/data-usage#telemetry-services";
-    lastChecked = "2026-03-29";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {
