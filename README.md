@@ -33,6 +33,7 @@ Set these to opt out. This is what the Nix modules above do for you.
 | [astro](https://github.com/withastro/astro) | `ASTRO_TELEMETRY_DISABLED=1` | 2026-02-22 |
 | [avalonia](https://github.com/AvaloniaUI/Avalonia) | `AVALONIA_TELEMETRY_OPTOUT=1` | 2026-02-22 |
 | [aws-cdk](https://github.com/aws/aws-cdk) | `CDK_DISABLE_CLI_TELEMETRY=true` | 2026-02-22 |
+| [aws-cli](https://github.com/aws/aws-cli) | `AWS_CLI_SESSION_ID_DISABLED=true` | 2026-08-01 |
 | [aws-sam-cli](https://github.com/aws/aws-sam-cli) | `SAM_CLI_TELEMETRY=0` | 2026-03-29 |
 | [azure-cli](https://github.com/Azure/azure-cli) | `AZURE_CORE_COLLECT_TELEMETRY=0` | 2026-03-29 |
 | [bun](https://github.com/oven-sh/bun) | `DO_NOT_TRACK=1` | 2026-02-22 |
@@ -75,6 +76,7 @@ Set these to opt out. This is what the Nix modules above do for you.
 | [n8n](https://github.com/n8n-io/n8n) | `N8N_DIAGNOSTICS_ENABLED=false` | 2026-02-22 |
 | [nextjs](https://github.com/vercel/next.js) | `NEXT_TELEMETRY_DISABLED=1` | 2026-02-22 |
 | [nuxtjs](https://github.com/nuxt/telemetry) | `NUXT_TELEMETRY_DISABLED=1` | 2026-02-22 |
+| [pi-coding-agent](https://github.com/earendil-works/pi/tree/main/packages/coding-agent) | `PI_TELEMETRY=0` | 2026-07-31 |
 | [platformio](https://github.com/platformio/platformio-core) | `PLATFORMIO_SETTING_ENABLE_TELEMETRY=false` | 2026-03-29 |
 | [powershell](https://github.com/PowerShell/PowerShell) | `POWERSHELL_TELEMETRY_OPTOUT=1` | 2026-03-29 |
 | [prisma](https://github.com/prisma/prisma) | `CHECKPOINT_DISABLE=1` | 2026-02-22 |
@@ -108,6 +110,7 @@ No environment variable, but a command turns the telemetry off once.
 | [govulncheck](https://github.com/golang/vuln) | `go telemetry off` | 2026-03-28 |
 | [opa](https://github.com/open-policy-agent/opa) | `opa run --disable-telemetry` | 2026-03-14 |
 | [react-native-windows](https://github.com/microsoft/react-native-windows) | `npx react-native run-windows --no-telemetry` | 2026-02-22 |
+| [wizcli](https://www.wiz.io/) | `wizcli --no-telemetry` | 2026-08-01 |
 
 ## Config
 
@@ -120,6 +123,8 @@ Opt out by editing a config file, or by changing a setting where no file backs i
 | [codex-app](https://github.com/openai/codex) | `~/.codex/config.toml` → `analytics.enabled = false` | 2026-03-14 |
 | [datagrip](https://www.jetbrains.com/datagrip/) | `Settings > Appearance & Behavior > System Settings > Data Sharing` → `Send anonymous usage statistics = off` | 2026-08-01 |
 | [discord](https://discord.com) | `User Settings > Privacy & Safety` → `Limit our ability to use your data to improve our services = on` | 2026-08-01 |
+| [docker-desktop](https://www.docker.com/products/docker-desktop/) | `~/.docker/desktop/settings-store.json` → `analyticsEnabled = false` | 2026-08-01 |
+| [docker-desktop](https://www.docker.com/products/docker-desktop/) | `~/Library/Group Containers/group.com.docker/settings-store.json` → `analyticsEnabled = false` | 2026-08-01 |
 | [earthly](https://github.com/earthly/earthly) | `~/.earthly/config.yml` → `global.disable_analytics = true` | 2026-03-29 |
 | [goland](https://www.jetbrains.com/go/) | `Settings > Appearance & Behavior > System Settings > Data Sharing` → `Send anonymous usage statistics = off` | 2026-08-01 |
 | [intellij-idea](https://www.jetbrains.com/idea/) | `Settings > Appearance & Behavior > System Settings > Data Sharing` → `Send anonymous usage statistics = off` | 2026-08-01 |
@@ -130,6 +135,9 @@ Opt out by editing a config file, or by changing a setting where no file backs i
 | [webstorm](https://www.jetbrains.com/webstorm/) | `Settings > Appearance & Behavior > System Settings > Data Sharing` → `Send anonymous usage statistics = off` | 2026-08-01 |
 | [zed](https://github.com/zed-industries/zed) | `~/.config/zed/settings.json` → `telemetry.diagnostics = false` | 2026-03-14 |
 | [zed](https://github.com/zed-industries/zed) | `~/.config/zed/settings.json` → `telemetry.metrics = false` | 2026-03-14 |
+| [zen-browser](https://github.com/zen-browser/desktop) | `about:config` → `datareporting.healthreport.uploadEnabled = false` | 2026-08-01 |
+| [zen-browser](https://github.com/zen-browser/desktop) | `about:config` → `datareporting.policy.dataSubmissionEnabled = false` | 2026-08-01 |
+| [zen-browser](https://github.com/zen-browser/desktop) | `about:config` → `toolkit.telemetry.enabled = false` | 2026-08-01 |
 
 ## No Way to Opt Out
 
@@ -137,13 +145,17 @@ Telemetry with nothing published that turns it off.
 
 | Tool | Last checked |
 |---|---|
+| [bruno](https://github.com/usebruno/bruno) | 2026-08-01 |
 | [claude](https://claude.ai) | 2026-03-14 |
 | [cleanshot](https://cleanshot.com) | 2026-03-14 |
 | [elgato-control-center](https://www.elgato.com/us/en/s/downloads) | 2026-03-14 |
 | [mullvad](https://github.com/mullvad/mullvadvpn-app) | 2026-03-14 |
+| [opencode-desktop](https://github.com/anomalyco/opencode) | 2026-07-31 |
 | [orbstack](https://orbstack.dev) | 2026-03-14 |
+| [rustrover](https://www.jetbrains.com/rust/) | 2026-07-31 |
 | [slack](https://slack.com) | 2026-03-14 |
 | [spotify](https://www.spotify.com) | 2026-03-14 |
 | [tower](https://www.git-tower.com) | 2026-03-14 |
+| [uv](https://github.com/astral-sh/uv) | 2026-08-01 |
 
 <!-- tools:end -->
