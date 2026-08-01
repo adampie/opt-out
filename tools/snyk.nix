@@ -3,8 +3,8 @@
   meta = {
     description = "Snyk security vulnerability scanner CLI";
     homepage = "https://github.com/snyk/cli";
-    documentation = "https://docs.snyk.io/snyk-cli/configure-the-snyk-cli";
-    lastChecked = "2026-03-29";
+    documentation = "https://docs.snyk.io/developer-tools/snyk-cli/snyk-cli/configure-the-snyk-cli";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {
