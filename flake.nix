@@ -26,6 +26,7 @@
               pkgs.statix
               pkgs.deadnix
               pkgs.yamllint
+              pkgs.jq
             ];
           };
         };
