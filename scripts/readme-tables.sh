@@ -67,11 +67,15 @@ config_rows=$(rows '
   | .[]
 ')
 
+# Same "status is not a way out" rule the Commands table applies. Counting a
+# status command as an opt-out here would drop a tool that has nothing but one
+# from this table as well as that one, leaving it in no table at all.
 none_rows=$(rows '
+  def optouts: .commands | to_entries | map(select(.key != "status"));
   to_entries
   | map(select(.value.hasTelemetry
                and (.value.variables | length) == 0
-               and (.value.commands | length) == 0
+               and (.value | optouts | length) == 0
                and (.value.config | length) == 0))
   | .[]
   | "| [" + .key + "](" + .value.homepage + ") | " + .value.lastChecked + " |"
