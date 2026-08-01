@@ -131,7 +131,7 @@ Opt out by editing a config file, or by changing a setting where no file backs i
 | [proxyman](https://proxyman.com) | `App Settings > Privacy` → `Share analytics with Proxyman = off` | 2026-08-01 |
 | [proxyman](https://proxyman.com) | `App Settings > Privacy` → `Share crashed reports with Proxyman = off` | 2026-08-01 |
 | [pycharm](https://www.jetbrains.com/pycharm/) | `Settings > Appearance & Behavior > System Settings > Data Sharing` → `Send anonymous usage statistics = off` | 2026-08-01 |
-| [rustrover](https://www.jetbrains.com/rust/) | `Settings > Appearance & Behavior > System Settings > Data Sharing` → `Send anonymous usage statistics = off` | 2026-07-31 |
+| [rustrover](https://www.jetbrains.com/rust/) | `Settings > Appearance & Behavior > System Settings > Data Sharing` → `Send anonymous usage statistics = off` | 2026-08-01 |
 | [signoz](https://github.com/SigNoz/signoz) | `statsreporter` → `enabled = false` | 2026-03-29 |
 | [webstorm](https://www.jetbrains.com/webstorm/) | `Settings > Appearance & Behavior > System Settings > Data Sharing` → `Send anonymous usage statistics = off` | 2026-08-01 |
 | [zed](https://github.com/zed-industries/zed) | `~/.config/zed/settings.json` → `telemetry.diagnostics = false` | 2026-03-14 |
