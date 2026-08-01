@@ -41,6 +41,7 @@ mise run lint-zizmor    # audits GitHub Actions workflows with zizmor
 mise run lint-all       # runs every check above; this is what CI runs
 mise run flake-update   # updates all flake inputs
 mise run readme-vars    # regenerates the environment variables section in README.md
+mise run readme-no-env-opt-out # regenerates the tools-without-an-env-var section in README.md
 ```
 
 ## Architecture
@@ -68,7 +69,7 @@ The platform-specific variable attribute differs by target:
 
 2. Run `git add tools/<toolname>.nix`. Nix flakes operate on git-tracked files, so untracked files are silently ignored by `nix eval` and `nix flake check`.
 
-3. Run `mise run readme-vars` to update the environment variables section in README.md.
+3. Run `mise run readme-vars` to update the environment variables section in README.md. For an excluded (`_`-prefixed) tool, run `mise run readme-no-env-opt-out` instead, which regenerates the section listing tools no environment variable can cover.
 
 The `name` field becomes the attribute name in all module outputs. No changes to `flake.nix` are needed, as `import-tree` picks up new files automatically.
 
@@ -78,7 +79,8 @@ The `name` field becomes the attribute name in all module outputs. No changes to
 - `tools/*.nix` — one file per tool, each a plain Nix attrset (not a function)
 - `tools/README.md` — the four tool templates, and the single source of truth for tool file shape
 - `scripts/readme-vars.sh` — generates the `<!-- vars:start -->`/`<!-- vars:end -->` section in README.md
-- `hk.pkl` — git hooks config (pre-commit linters with auto-fix, pre-push flake check, readme-vars generation)
+- `scripts/no-env-opt-out.sh` — generates the `<!-- no-env-opt-out:start -->`/`<!-- no-env-opt-out:end -->` section in README.md from the `noEnvOptOut` flake output
+- `hk.pkl` — git hooks config (pre-commit linters with auto-fix, pre-push flake check, README section generation)
 - `mise.toml` — task runner for formatting, linting, flake operations, and README generation
 - `mise.lock` — pins the exact version, checksum and download URL of every mise tool per platform
 - `.github/workflows/ci.yml` — runs `mise run lint-all` on push to main and on pull requests
