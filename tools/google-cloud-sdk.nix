@@ -3,8 +3,8 @@
   meta = {
     description = "Google Cloud SDK command line tools";
     homepage = "https://github.com/google-cloud-sdk-unofficial/google-cloud-sdk";
-    documentation = "https://cloud.google.com/sdk/docs/properties";
-    lastChecked = "2026-03-29";
+    documentation = "https://docs.cloud.google.com/sdk/docs/properties";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {

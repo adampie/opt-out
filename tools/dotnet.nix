@@ -4,7 +4,7 @@
     description = ".NET SDK and CLI";
     homepage = "https://github.com/dotnet/sdk";
     documentation = "https://learn.microsoft.com/en-us/dotnet/core/tools/telemetry";
-    lastChecked = "2026-02-22";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {

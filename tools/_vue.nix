@@ -4,7 +4,7 @@
     description = "Vue.js CLI tooling";
     homepage = "https://github.com/vuejs/vue-cli";
     documentation = "https://cli.vuejs.org/guide/";
-    lastChecked = "2026-02-22";
+    lastChecked = "2026-08-01";
     hasTelemetry = false;
   };
   variables = { };

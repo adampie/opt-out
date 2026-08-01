@@ -3,8 +3,8 @@
   meta = {
     description = "DVC data version control for ML projects";
     homepage = "https://github.com/iterative/dvc";
-    documentation = "https://dvc.org/doc/user-guide/analytics";
-    lastChecked = "2026-02-22";
+    documentation = "https://doc.dvc.org/user-guide/analytics";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {

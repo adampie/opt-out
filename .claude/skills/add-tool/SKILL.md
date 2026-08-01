@@ -13,7 +13,9 @@ Investigate the tool named in $ARGUMENTS and determine whether it qualifies for 
 
 3. **Check for duplicates** in `tools/`, including `_`-prefixed files.
 
-4. **Create the tool file** from the matching template in `tools/README.md`. Use `tools/<toolname>.nix` when a qualifying environment variable exists, `tools/_<toolname>.nix` when it does not. Do not add comments explaining an exclusion; the metadata is self-documenting. Every key in the template is asserted by `flake.nix`, so include `commands` and `config` even when empty.
+4. **Create the tool file** from the matching template in `tools/README.md`. Use `tools/<toolname>.nix` when a qualifying environment variable exists, `tools/_<toolname>.nix` when it does not. Every key in the template is asserted by `flake.nix`, so include `commands` and `config` even when empty.
+
+   Do not add comments restating what the metadata already says. Do add a brief comment when a tool has a data flow that deliberately falls outside the criteria, such as an update check that carries system statistics, so the next person does not re-investigate it and reach a different conclusion.
 
    Filling in the metadata:
    - `description` covers only this tool. No other tools, frameworks, or ecosystems.

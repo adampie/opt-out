@@ -4,7 +4,7 @@
     description = "AWS Amplify CLI";
     homepage = "https://github.com/aws-amplify/amplify-cli";
     documentation = "https://docs.amplify.aws/react/reference/telemetry/";
-    lastChecked = "2026-02-22";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {

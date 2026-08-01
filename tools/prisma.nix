@@ -4,7 +4,7 @@
     description = "Prisma ORM for Node.js and TypeScript";
     homepage = "https://github.com/prisma/prisma";
     documentation = "https://www.prisma.io/docs/orm/v6/tools/prisma-cli";
-    lastChecked = "2026-02-22";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {

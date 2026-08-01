@@ -4,7 +4,7 @@
     description = "GitHub's official command line tool";
     homepage = "https://github.com/cli/cli";
     documentation = "https://cli.github.com/telemetry";
-    lastChecked = "2026-04-22";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {
