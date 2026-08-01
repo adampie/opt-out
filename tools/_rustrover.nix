@@ -9,5 +9,9 @@
   };
   variables = { };
   commands = { };
-  config = { };
+  config = {
+    "Settings > Appearance & Behavior > System Settings > Data Sharing" = {
+      "Send anonymous usage statistics" = "off";
+    };
+  };
 }
