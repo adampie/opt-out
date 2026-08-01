@@ -81,7 +81,6 @@ Set these to opt out. This is what the Nix modules above do for you.
 | [powershell](https://github.com/PowerShell/PowerShell) | `POWERSHELL_TELEMETRY_OPTOUT=1` | 2026-08-01 |
 | [prisma](https://github.com/prisma/prisma) | `CHECKPOINT_DISABLE=1` | 2026-08-01 |
 | [redwood](https://github.com/redwoodjs/redwood) | `REDWOOD_DISABLE_TELEMETRY=1` | 2026-08-01 |
-| [serverless](https://github.com/serverless/serverless) | `SLS_TELEMETRY_DISABLED=1` | 2026-08-01 |
 | [shopify-cli](https://github.com/Shopify/cli) | `SHOPIFY_CLI_NO_ANALYTICS=1` | 2026-08-01 |
 | [snyk](https://github.com/snyk/cli) | `SNYK_DISABLE_ANALYTICS=1` | 2026-08-01 |
 | [steampipe](https://github.com/turbot/steampipe) | `STEAMPIPE_TELEMETRY=none` | 2026-08-01 |
@@ -153,6 +152,7 @@ Telemetry with nothing published that turns it off.
 | [mullvad](https://github.com/mullvad/mullvadvpn-app) | 2026-08-01 |
 | [opencode-desktop](https://github.com/anomalyco/opencode) | 2026-08-01 |
 | [orbstack](https://orbstack.dev) | 2026-08-01 |
+| [serverless](https://github.com/serverless/serverless) | 2026-08-01 |
 | [slack](https://slack.com) | 2026-08-01 |
 | [spotify](https://www.spotify.com) | 2026-08-01 |
 | [tower](https://www.git-tower.com) | 2026-08-01 |
