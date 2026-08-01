@@ -110,4 +110,6 @@ None of these count as an environment variable opt-out, so a tool whose only rou
 
 Update check suppression (e.g., `DENO_NO_UPDATE_CHECK`, `PDM_CHECK_UPDATE`) is not a telemetry opt-out at all, so it does not qualify under either heading and should not be recorded as one.
 
+This holds even when the update check itself carries data. Some vendors piggyback system attributes on it and describe the result as anonymous statistics (Objective Development's apps send macOS version, CPU architecture and language this way). The tool still counts as having no telemetry, because the only control is the update check. Record the behaviour in a comment above `hasTelemetry` so the next investigation does not reach a different conclusion.
+
 Always verify the variable name against the tool's official documentation before adding.
