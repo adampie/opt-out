@@ -96,7 +96,7 @@ Set these to opt out. This is what the Nix modules above do for you.
 
 ## Commands
 
-No environment variable, but a command turns the telemetry off once.
+Run the command once and the telemetry stays off. Some of these tools have an environment variable too.
 
 | Tool | Command | Last checked |
 |---|---|---|

@@ -102,7 +102,7 @@ trap 'rm -f "$section" "$readme_new"' EXIT
 	echo
 	echo "## Commands"
 	echo
-	echo "No environment variable, but a command turns the telemetry off once."
+	echo "Run the command once and the telemetry stays off. Some of these tools have an environment variable too."
 	echo
 	echo "| Tool | Command | Last checked |"
 	echo "|---|---|---|"
