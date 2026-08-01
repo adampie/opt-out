@@ -34,7 +34,7 @@ local linters = new Mapping<String, Step> {
   }
   ["markdownlint"] {
     glob = List("**/*.md", "**/*.markdown")
-    depends = List("readme-vars", "readme-no-env-opt-out")
+    depends = List("readme-tables")
     check = "markdownlint-cli2 {{files}}"
     fix = "markdownlint-cli2 --fix {{files}}"
   }
@@ -50,17 +50,10 @@ hooks {
         glob = List("tools/*.nix")
         check = "nix eval .#validateAll > /dev/null"
       }
-      ["readme-vars"] {
+      ["readme-tables"] {
         glob = List("tools/*.nix")
         depends = List("validate-tools")
-        fix = "mise run readme-vars && git add README.md"
-      }
-      // Both generators rewrite README.md wholesale, so this one is sequenced
-      // after readme-vars rather than left to race it.
-      ["readme-no-env-opt-out"] {
-        glob = List("tools/*.nix")
-        depends = List("readme-vars")
-        fix = "mise run readme-no-env-opt-out && git add README.md"
+        fix = "mise run readme-tables && git add README.md"
       }
     }
   }
