@@ -106,23 +106,19 @@
 
           variables = builtins.foldl' (acc: t: acc // t.variables) { } toolDefs;
 
-          # Tools with telemetry that no environment variable turns off, so the
-          # modules above cannot cover them. Derived from allToolDefs rather than
-          # toolDefs because every entry is _-prefixed and import-tree never sees
-          # those. Empty commands and config means no opt-out is documented at all.
-          noEnvOptOut = builtins.listToAttrs (
+          # Everything the README generator needs, in one output. Built from
+          # allToolDefs rather than toolDefs because the _-prefixed exclusions are
+          # half the point here and import-tree never sees those. Which table a
+          # tool lands in is left to the generator, so the flake stays a
+          # description of the tools rather than of the README.
+          catalogue = builtins.listToAttrs (
             map (t: {
               inherit (t) name;
               value = {
-                inherit (t.meta)
-                  description
-                  homepage
-                  documentation
-                  lastChecked
-                  ;
-                inherit (t) commands config;
+                inherit (t.meta) homepage lastChecked hasTelemetry;
+                inherit (t) variables commands config;
               };
-            }) (builtins.filter (t: t.meta.hasTelemetry && t.variables == { }) allToolDefs)
+            }) allToolDefs
           );
         in
         {
@@ -130,7 +126,7 @@
             variables
             tools
             validateAll
-            noEnvOptOut
+            catalogue
             ;
 
           homeManagerModules =
