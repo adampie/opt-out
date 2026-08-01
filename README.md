@@ -131,6 +131,7 @@ Opt out by editing a config file, or by changing a setting where no file backs i
 | [proxyman](https://proxyman.com) | `App Settings > Privacy` → `Share analytics with Proxyman = off` | 2026-08-01 |
 | [proxyman](https://proxyman.com) | `App Settings > Privacy` → `Share crashed reports with Proxyman = off` | 2026-08-01 |
 | [pycharm](https://www.jetbrains.com/pycharm/) | `Settings > Appearance & Behavior > System Settings > Data Sharing` → `Send anonymous usage statistics = off` | 2026-08-01 |
+| [rustrover](https://www.jetbrains.com/rust/) | `Settings > Appearance & Behavior > System Settings > Data Sharing` → `Send anonymous usage statistics = off` | 2026-07-31 |
 | [signoz](https://github.com/SigNoz/signoz) | `statsreporter` → `enabled = false` | 2026-03-29 |
 | [webstorm](https://www.jetbrains.com/webstorm/) | `Settings > Appearance & Behavior > System Settings > Data Sharing` → `Send anonymous usage statistics = off` | 2026-08-01 |
 | [zed](https://github.com/zed-industries/zed) | `~/.config/zed/settings.json` → `telemetry.diagnostics = false` | 2026-03-14 |
@@ -152,7 +153,6 @@ Telemetry with nothing published that turns it off.
 | [mullvad](https://github.com/mullvad/mullvadvpn-app) | 2026-03-14 |
 | [opencode-desktop](https://github.com/anomalyco/opencode) | 2026-07-31 |
 | [orbstack](https://orbstack.dev) | 2026-03-14 |
-| [rustrover](https://www.jetbrains.com/rust/) | 2026-07-31 |
 | [slack](https://slack.com) | 2026-03-14 |
 | [spotify](https://www.spotify.com) | 2026-03-14 |
 | [tower](https://www.git-tower.com) | 2026-03-14 |
