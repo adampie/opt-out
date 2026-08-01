@@ -122,7 +122,7 @@ Opt out by editing a config file, or by changing a setting where no file backs i
 | [codex](https://github.com/openai/codex) | `~/.codex/config.toml` → `analytics.enabled = false` | 2026-03-14 |
 | [codex-app](https://github.com/openai/codex) | `~/.codex/config.toml` → `analytics.enabled = false` | 2026-03-14 |
 | [datagrip](https://www.jetbrains.com/datagrip/) | `Settings > Appearance & Behavior > System Settings > Data Sharing` → `Send anonymous usage statistics = off` | 2026-08-01 |
-| [discord](https://discord.com) | `User Settings > Privacy & Safety` → `Limit our ability to use your data to improve our services = on` | 2026-08-01 |
+| [discord](https://discord.com) | `User Settings > Data & Privacy` → `Use Data to Improve Discord = off` | 2026-08-01 |
 | [docker-desktop](https://www.docker.com/products/docker-desktop/) | `~/.docker/desktop/settings-store.json` → `analyticsEnabled = false` | 2026-08-01 |
 | [docker-desktop](https://www.docker.com/products/docker-desktop/) | `~/Library/Group Containers/group.com.docker/settings-store.json` → `analyticsEnabled = false` | 2026-08-01 |
 | [earthly](https://github.com/earthly/earthly) | `~/.earthly/config.yml` → `global.disable_analytics = true` | 2026-03-29 |
