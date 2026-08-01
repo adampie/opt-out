@@ -26,6 +26,7 @@
               pkgs.statix
               pkgs.deadnix
               pkgs.yamllint
+              pkgs.jq
             ];
           };
         };
@@ -104,9 +105,29 @@
           );
 
           variables = builtins.foldl' (acc: t: acc // t.variables) { } toolDefs;
+
+          # Everything the README generator needs, in one output. Built from
+          # allToolDefs rather than toolDefs because the _-prefixed exclusions are
+          # half the point here and import-tree never sees those. Which table a
+          # tool lands in is left to the generator, so the flake stays a
+          # description of the tools rather than of the README.
+          catalogue = builtins.listToAttrs (
+            map (t: {
+              inherit (t) name;
+              value = {
+                inherit (t.meta) homepage lastChecked hasTelemetry;
+                inherit (t) variables commands config;
+              };
+            }) allToolDefs
+          );
         in
         {
-          inherit variables tools validateAll;
+          inherit
+            variables
+            tools
+            validateAll
+            catalogue
+            ;
 
           homeManagerModules =
             builtins.listToAttrs (

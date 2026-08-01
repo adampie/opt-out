@@ -31,10 +31,10 @@ Investigate the tool named in $ARGUMENTS and determine whether it qualifies for 
    mise run flake-check
    ```
 
-6. **Regenerate the README** if the tool was added rather than excluded:
+6. **Regenerate the README.** Run this whether the tool was added or excluded: the tables cover commands, config and tools with no opt-out at all, so an exclusion changes the README too.
 
    ```bash
-   mise run readme-vars
+   mise run readme-tables
    git add README.md
    ```
 

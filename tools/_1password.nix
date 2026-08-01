@@ -3,11 +3,15 @@
   meta = {
     description = "Password manager desktop application";
     homepage = "https://1password.com";
-    documentation = "https://support.1password.com/1password-privacy/";
-    lastChecked = "2026-03-14";
+    documentation = "https://support.1password.com/telemetry/";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = { };
   commands = { };
-  config = { };
+  config = {
+    "Manage Account > Usage Data" = {
+      "Share information about your usage across the 1Password apps" = "off";
+    };
+  };
 }
