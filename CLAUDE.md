@@ -94,14 +94,20 @@ Run `mise lock --platform linux-x64,macos-arm64` after changing a pinned version
 
 ### Excluded tools
 
-Files prefixed with `_` (e.g., `tools/_flutter.nix`) represent investigated tools that lack environment variable opt-out. These have an empty `variables = {};` block and use `commands` for CLI-based opt-out or `config` for config-file-based opt-out. `import-tree` ignores paths containing `/_` by default, so these files are excluded from all flake outputs.
+Files prefixed with `_` (e.g., `tools/_flutter.nix`) represent investigated tools that lack an environment variable opt-out. These have an empty `variables = {};` block and use `commands` for CLI-based opt-out, `config` for config-file or settings-toggle opt-out, or leave both empty when the tool publishes no opt-out at all. `import-tree` ignores paths containing `/_` by default, so these files never reach the generated modules. The `catalogue` output reads `tools/` directly and does include them, which is how they reach the README tables.
 
 ### Criteria for adding a tool
 
-Only add a tool if it has an **environment variable** that disables **telemetry, analytics, or crash reporting**. The following do not qualify:
+Every tool worth investigating gets a file. The prefix decides where it ends up, so answer this first: does the tool have an **environment variable** that disables **telemetry, analytics, or crash reporting**?
 
-- Update check suppression (e.g., `DENO_NO_UPDATE_CHECK`, `PDM_CHECK_UPDATE`)
-- CLI-command-based opt-out (e.g., `flutter --disable-analytics`)
-- Settings-file-based opt-out
+- **Yes** — add it as `tools/<name>.nix`. Its variables are merged into the Home Manager, nix-darwin and NixOS modules, which is the only shape those modules can express.
+- **No** — add it as `tools/_<name>.nix`. There is nothing for a module to set, but the tool still belongs in the README tables so the opt-out, or the documented absence of one, is on record.
+
+None of these count as an environment variable opt-out, so a tool whose only route out is one of them takes the `_` prefix:
+
+- CLI-command-based opt-out (e.g., `flutter --disable-analytics`), recorded in `commands`
+- Config-file or settings-toggle opt-out (e.g., a GUI privacy checkbox), recorded in `config`
+
+Update check suppression (e.g., `DENO_NO_UPDATE_CHECK`, `PDM_CHECK_UPDATE`) is not a telemetry opt-out at all, so it does not qualify under either heading and should not be recorded as one.
 
 Always verify the variable name against the tool's official documentation before adding.
