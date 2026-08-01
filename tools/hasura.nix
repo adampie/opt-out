@@ -4,7 +4,7 @@
     description = "Hasura GraphQL Engine";
     homepage = "https://github.com/hasura/graphql-engine";
     documentation = "https://hasura.io/docs/latest/policies/telemetry/";
-    lastChecked = "2026-03-29";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {

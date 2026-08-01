@@ -4,7 +4,7 @@
     description = "LocalStack local AWS cloud emulator";
     homepage = "https://github.com/localstack/localstack";
     documentation = "https://docs.localstack.cloud/references/usage-tracking/";
-    lastChecked = "2026-02-22";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {

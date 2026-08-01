@@ -9,7 +9,7 @@
     description = "HashiCorp tools (Vagrant, Terraform, Consul, Packer, Nomad)";
     homepage = "https://github.com/hashicorp/go-checkpoint";
     documentation = "https://checkpoint.hashicorp.com";
-    lastChecked = "2026-02-22";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {

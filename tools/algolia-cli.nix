@@ -4,7 +4,7 @@
     description = "Algolia search platform command line interface";
     homepage = "https://github.com/algolia/cli";
     documentation = "https://www.algolia.com/doc/tools/cli/telemetry/";
-    lastChecked = "2026-03-29";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {

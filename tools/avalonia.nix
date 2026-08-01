@@ -4,7 +4,7 @@
     description = "Avalonia cross-platform UI framework";
     homepage = "https://github.com/AvaloniaUI/Avalonia";
     documentation = "https://github.com/AvaloniaUI/Avalonia/wiki/Telemetry";
-    lastChecked = "2026-02-22";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {

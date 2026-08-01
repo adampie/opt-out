@@ -4,7 +4,7 @@
     description = "Grafana open-source observability platform";
     homepage = "https://github.com/grafana/grafana";
     documentation = "https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/";
-    lastChecked = "2026-03-29";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {

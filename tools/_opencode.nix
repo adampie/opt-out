@@ -4,7 +4,7 @@
     description = "AI coding agent for the terminal";
     homepage = "https://github.com/opencode-ai/opencode";
     documentation = "https://opencode.ai/docs/config";
-    lastChecked = "2026-03-14";
+    lastChecked = "2026-08-01";
     hasTelemetry = false;
   };
   variables = { };

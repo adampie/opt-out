@@ -4,7 +4,7 @@
     description = "Yarn package manager (Berry v2+)";
     homepage = "https://github.com/yarnpkg/berry";
     documentation = "https://yarnpkg.com/advanced/telemetry";
-    lastChecked = "2026-02-22";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {

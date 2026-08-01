@@ -4,7 +4,7 @@
     description = "Defaults that are not a standard but are used by CLI tools";
     homepage = "https://github.com/adampie/opt-out";
     documentation = "https://github.com/adampie/opt-out";
-    lastChecked = "2026-02-22";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {

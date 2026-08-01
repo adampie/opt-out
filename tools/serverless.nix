@@ -4,7 +4,7 @@
     description = "Serverless Framework for building serverless applications";
     homepage = "https://github.com/serverless/serverless";
     documentation = "https://github.com/serverless/serverless";
-    lastChecked = "2026-03-29";
+    lastChecked = "2026-08-01";
     hasTelemetry = true;
   };
   variables = {
