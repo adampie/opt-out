@@ -3,8 +3,7 @@ amends "package://github.com/jdx/hk/releases/download/v1.36.0/hk@1.36.0#/Config.
 import "package://github.com/jdx/hk/releases/download/v1.36.0/hk@1.36.0#/Builtins.pkl"
 
 local linters = new Mapping<String, Step> {
-  // Nix linters come from the flake devShell so their versions are pinned by
-  // flake.lock rather than by whatever channel the machine happens to have.
+  // Nix linters come from the flake devShell, so flake.lock pins their versions.
   ["nixfmt"] {
     glob = List("**/*.nix")
     check = "nix develop -c nixfmt --check {{files}}"

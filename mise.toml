@@ -1,5 +1,4 @@
 [settings]
-# Records resolved versions, checksums and per-platform URLs in mise.lock
 lockfile = true
 
 [tools]
@@ -11,21 +10,19 @@ shfmt = "3.13.1"
 taplo = "0.10.0"
 zizmor = "1.28.0"
 
-# nixfmt, statix and deadnix have no mise backend, so they come from the flake's
-# devShell instead, pinned by flake.lock.
+# nixfmt, statix and deadnix have no mise backend, so the flake devShell pins them.
 
 [tasks.flake-check]
 description = "Validate the flake and all tool definitions"
 run = "nix flake check"
 
 # `nix flake check` leaves validateAll unchecked, and it is the only thing that
-# validates the _-prefixed exclusions, which no module output references.
+# validates the _-prefixed exclusions.
 [tasks.validate-tools]
 description = "Validate every tool definition, including _-prefixed exclusions"
 run = "nix eval .#validateAll > /dev/null"
 
 # nixfmt deprecated passing a directory, so feed it an explicit file list.
-# git ls-files also matches what the flake itself sees.
 [tasks.fmt]
 description = "Format all Nix files"
 run = '''nix develop -c bash -c "git ls-files '*.nix' | xargs nixfmt"'''
@@ -42,10 +39,8 @@ run = ["nix develop -c statix check .", "nix develop -c deadnix ."]
 description = "Lint all Markdown files"
 run = "markdownlint-cli2 '**/*.md' '.claude/**/*.md'"
 
-# Enumerated the same way as fmt rather than by a recursive glob, so gitignored
-# trees stay out. A **/*.sh glob would descend into result/ and .direnv/ and lint
-# whatever nix happened to build. -r keeps xargs from running the linter bare on
-# GNU systems when nothing matches.
+# Enumerated rather than globbed so gitignored trees stay out: **/*.sh would
+# descend into result/ and .direnv/. -r stops xargs running the linter bare.
 [tasks.lint-sh]
 description = "Lint all shell scripts"
 run = [
@@ -88,8 +83,7 @@ depends = [
 description = "Update all flake inputs"
 run = "nix flake update"
 
-# jq comes from the flake devShell, so this wraps itself the same way the nixfmt
-# and statix tasks do rather than trusting whatever jq is on PATH.
+# jq comes from the flake devShell, so this wraps itself like the nixfmt tasks.
 [tasks.readme-tables]
 description = "Regenerate the opt-out tables in README.md"
 run = "nix develop -c bash scripts/readme-tables.sh"

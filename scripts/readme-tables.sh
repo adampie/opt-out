@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# The jq programs below are single-quoted deliberately: $name, $t and $where are
-# jq variables and have to reach jq unexpanded, so the shell must not touch them.
+# $name, $t and $where are jq variables, so the shell must not expand them.
 # shellcheck disable=SC2016
 set -euo pipefail
 
@@ -8,13 +7,10 @@ readme="README.md"
 marker_start="<!-- tools:start -->"
 marker_end="<!-- tools:end -->"
 
-# One flake output feeds all four tables, so the sections cannot disagree about
-# what a tool records. Reading tools/ with grep instead would mean
-# reimplementing enough Nix to parse a nested config attrset.
+# One flake output feeds all four tables, so they cannot disagree.
 data=$(nix eval --json .#catalogue)
 
-# nix eval emits attribute names sorted, and jq's to_entries preserves that, so
-# every table comes out ordered by tool without an explicit sort.
+# nix eval sorts attribute names and to_entries preserves that, so no sort here.
 rows() {
 	jq -r "$1" <<<"$data"
 }
@@ -33,8 +29,7 @@ env_rows=$(rows '
   | .[]
 ')
 
-# "status" commands only report the current setting, so they are not a way out
-# and a tool with nothing but one is not really command-opt-outtable.
+# "status" commands only report the current setting, so they are not a way out.
 command_rows=$(rows '
   def esc: gsub("\\|"; "\\|");
   def optouts: .commands | to_entries | map(select(.key != "status"));
@@ -67,9 +62,8 @@ config_rows=$(rows '
   | .[]
 ')
 
-# Same "status is not a way out" rule the Commands table applies. Counting a
-# status command as an opt-out here would drop a tool that has nothing but one
-# from this table as well as that one, leaving it in no table at all.
+# Same "status is not a way out" rule as the Commands table. Counting one as an
+# opt-out here would leave a status-only tool in no table at all.
 none_rows=$(rows '
   def optouts: .commands | to_entries | map(select(.key != "status"));
   to_entries
@@ -81,11 +75,9 @@ none_rows=$(rows '
   | "| [" + .key + "](" + .value.homepage + ") | " + .value.lastChecked + " |"
 ')
 
-# readme_new is created beside README.md rather than in TMPDIR so the closing mv
-# is a rename within one filesystem. A rename is atomic, so a run interrupted at
-# any point before it leaves the committed README untouched rather than half
-# written. Both temporaries get unpredictable names so a local process cannot
-# pre-create them as symlinks and redirect the writes.
+# readme_new sits beside README.md so the closing mv is a same-filesystem rename,
+# which is atomic: an interrupted run leaves the committed README untouched.
+# mktemp names both unpredictably, so no local process can pre-create symlinks.
 section=$(mktemp)
 readme_new=$(mktemp ./.README.XXXXXX)
 trap 'rm -f "$section" "$readme_new"' EXIT
@@ -126,9 +118,8 @@ trap 'rm -f "$section" "$readme_new"' EXIT
 	echo
 } >"$section"
 
-# Counted as whole lines because the awk below matches them that way. A substring
-# test would disagree with awk, take the replace branch on a near-miss, and write
-# the README back with nothing substituted.
+# Whole-line matching, because the awk below matches that way. A substring test
+# would disagree and take the replace branch on a near-miss, substituting nothing.
 start_count=$(grep -c -Fx "$marker_start" "$readme" || true)
 end_count=$(grep -c -Fx "$marker_end" "$readme" || true)
 
@@ -140,9 +131,8 @@ fi
 start_line=$(grep -n -Fx "$marker_start" "$readme" | cut -d: -f1)
 end_line=$(grep -n -Fx "$marker_end" "$readme" | cut -d: -f1)
 
-# awk sets in_block on the start marker and only clears it on the end marker.
-# Reach the end marker first and in_block never clears, so every remaining line
-# is suppressed and the result is a README truncated at the block.
+# awk clears in_block only on the end marker, so an end marker reached first
+# would suppress every remaining line and truncate the README at the block.
 if ((start_line >= end_line)); then
 	echo "readme-tables: $marker_end (line $end_line) precedes $marker_start (line $start_line) in $readme" >&2
 	exit 1
