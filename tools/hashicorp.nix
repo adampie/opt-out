@@ -1,9 +1,7 @@
 {
-  # CHECKPOINT_DISABLE switches off the whole Checkpoint client, not just its
-  # reporting. Checkpoint also carries version information and security
-  # bulletins, so setting this gives up upgrade notices and vulnerability
-  # alerts across every HashiCorp product on the machine. Kept because it is
-  # the only opt-out HashiCorp offers, but it costs more than telemetry alone.
+  # CHECKPOINT_DISABLE switches off the whole Checkpoint client, so it also gives
+  # up upgrade notices and security bulletins across every HashiCorp product.
+  # Kept because it is the only opt-out HashiCorp offers.
   name = "hashicorp";
   meta = {
     description = "HashiCorp tools (Vagrant, Terraform, Consul, Packer, Nomad)";

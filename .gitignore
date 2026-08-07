@@ -1,11 +1,9 @@
-# Ignore build outputs from performing a nix-build or `nix build` command
+# nix build output symlinks
 result
 result-*
 
-# Ignore automatically generated direnv output
 .direnv
 
 .idea/
 
-# macOS Finder metadata
 .DS_Store
