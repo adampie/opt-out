@@ -8,8 +8,7 @@
   outputs =
     inputs:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      # Only needed for the lint devShell; the tool outputs below are pure eval
-      # and system-independent.
+      # Only the lint devShell is per-system; the tool outputs are pure eval.
       systems = [
         "x86_64-linux"
         "aarch64-linux"
@@ -106,11 +105,8 @@
 
           variables = builtins.foldl' (acc: t: acc // t.variables) { } toolDefs;
 
-          # Everything the README generator needs, in one output. Built from
-          # allToolDefs rather than toolDefs because the _-prefixed exclusions are
-          # half the point here and import-tree never sees those. Which table a
-          # tool lands in is left to the generator, so the flake stays a
-          # description of the tools rather than of the README.
+          # Built from allToolDefs rather than toolDefs because the README needs
+          # the _-prefixed exclusions, which import-tree never sees.
           catalogue = builtins.listToAttrs (
             map (t: {
               inherit (t) name;

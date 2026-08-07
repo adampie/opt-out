@@ -19,8 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          # Nothing here pushes, so leaving the token in .git/config would be
-          # pure downside (zizmor: artipacked).
+          # Nothing here pushes, so a persisted token is pure downside (zizmor: artipacked).
           persist-credentials: false
 
       - uses: DeterminateSystems/nix-installer-action@ef8a148080ab6020fd15196c2084a2eea5ff2d25 # v22
@@ -30,6 +29,5 @@ jobs:
       # Each mise task enters the devShell itself, so no outer `nix develop`.
       - run: mise run lint-all
         env:
-          # Lets zizmor run its online audits (unpinned-uses) rather than
-          # silently falling back to offline mode.
+          # Lets zizmor run its online audits rather than falling back to offline.
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
