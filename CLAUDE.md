@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-`opt-out` is a Nix Flake that centralizes telemetry opt-out environment variables for development tools. It generates Home Manager, nix-darwin, and NixOS modules from a collection of simple tool definition files.
+`opt-out` is a Nix Flake that centralises telemetry opt-out environment variables for development tools. It generates Home Manager, nix-darwin, and NixOS modules from a collection of tool definition files.
 
 ## Commands
 
@@ -74,14 +74,14 @@ The `name` field becomes the attribute name in all module outputs. No changes to
 
 ### Key files
 
-- `flake.nix` — all logic for assembling tool definitions into flake outputs, plus the lint devShell
-- `tools/*.nix` — one file per tool, each a plain Nix attrset (not a function)
-- `tools/README.md` — the five tool templates, and the single source of truth for tool file shape
-- `scripts/readme-tables.sh` — generates the `<!-- tools:start -->`/`<!-- tools:end -->` section in README.md from the `catalogue` flake output: one table each for environment variables, commands, config, and tools with no opt-out at all
-- `hk.pkl` — git hooks config (pre-commit linters with auto-fix, pre-push flake check, README table generation)
-- `mise.toml` — task runner for formatting, linting, flake operations, and README generation
-- `mise.lock` — pins the exact version, checksum and download URL of every mise tool per platform
-- `.github/workflows/ci.yml` — runs `mise run lint-all` on push to main and on pull requests
+- `flake.nix`: all logic for assembling tool definitions into flake outputs, plus the lint devShell
+- `tools/*.nix`: one file per tool, each a plain Nix attrset (not a function)
+- `tools/README.md`: the five tool templates, and the single source of truth for tool file shape
+- `scripts/readme-tables.sh`: generates the `<!-- tools:start -->`/`<!-- tools:end -->` section in README.md from the `catalogue` flake output, one table each for environment variables, commands, config, and tools with no opt-out at all
+- `hk.pkl`: git hooks config (pre-commit linters with auto-fix, pre-push flake check, README table generation)
+- `mise.toml`: task runner for formatting, linting, flake operations, and README generation
+- `mise.lock`: pins the exact version, checksum and download URL of every mise tool per platform
+- `.github/workflows/ci.yml`: runs `mise run lint-all` on push to main and on pull requests
 
 ### Tooling versions
 
@@ -100,8 +100,8 @@ Files prefixed with `_` (e.g., `tools/_flutter.nix`) represent investigated tool
 
 Every tool worth investigating gets a file. The prefix decides where it ends up, so answer this first: does the tool have an **environment variable** that disables **telemetry, analytics, or crash reporting**?
 
-- **Yes** — add it as `tools/<name>.nix`. Its variables are merged into the Home Manager, nix-darwin and NixOS modules, which is the only shape those modules can express.
-- **No** — add it as `tools/_<name>.nix`. There is nothing for a module to set, but the tool still belongs in the README tables so the opt-out, or the documented absence of one, is on record.
+- **Yes**. Add it as `tools/<name>.nix`. Its variables are merged into the Home Manager, nix-darwin and NixOS modules, which is the only shape those modules can express.
+- **No**. Add it as `tools/_<name>.nix`. There is nothing for a module to set, but the tool still belongs in the README tables so the opt-out, or the documented absence of one, is on record.
 
 None of these count as an environment variable opt-out, so a tool whose only route out is one of them takes the `_` prefix:
 
