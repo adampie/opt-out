@@ -1,15 +1,18 @@
 ---
 name: add-tool
 description: Investigate a tool and add it to the opt-out flake. Accepts a GitHub issue number or a bare tool name.
+disable-model-invocation: true
 ---
 
 # Add tool
 
 Investigate the tool named in $ARGUMENTS and determine whether it qualifies for the opt-out flake.
 
-1. **Identify the tool.** If $ARGUMENTS is an issue number, run `gh issue view <number>` for the tool name and any linked documentation. If it is a bare tool name, use it directly and skip the issue-linking in step 7.
+1. **Identify the tool.** If $ARGUMENTS is an issue number, run `gh issue view <number>` for the tool name and any linked documentation. If it is a bare tool name, use it directly and skip the issue-linking in step 6.
 
 2. **Research it** against its official documentation and source repository, looking for an environment variable that disables telemetry, analytics, or crash reporting. Eligibility rules are in `CLAUDE.md`; only an environment variable qualifies.
+
+   The search ends with a URL that names the variable, or with the documentation showing there is none. That URL is what step 4 records as `documentation`, so a conclusion drawn without one is not finished research.
 
 3. **Check for duplicates** in `tools/`, including `_`-prefixed files.
 
@@ -24,23 +27,19 @@ Investigate the tool named in $ARGUMENTS and determine whether it qualifies for 
    - `lastChecked` is today, `YYYY-MM-DD`.
    - `hasTelemetry` stays `true` for anything with telemetry, including tools excluded for only having a CLI or config opt-out. Set `false` only after confirming there is none.
 
-5. **Stage and validate.** Flakes ignore untracked files, so the `git add` has to come first or the checks will not see the new tool.
+5. **Stage, regenerate, validate.** Flakes ignore untracked files and `mise run fmt` formats what `git ls-files` reports, so the new file has to be staged before either runs, and staged again afterwards to pick up the formatter's rewrite. Regenerate the README whether the tool was added or excluded: the tables cover commands, config and tools with no opt-out at all.
 
    ```bash
    git add tools/<filename>.nix
    mise run fmt
-   mise run lint
-   mise run flake-check
-   ```
-
-6. **Regenerate the README.** Run this whether the tool was added or excluded: the tables cover commands, config and tools with no opt-out at all, so an exclusion changes the README too.
-
-   ```bash
    mise run readme-tables
-   git add README.md
+   git add tools/<filename>.nix README.md
+   mise run lint-all
    ```
 
-7. **Ship it.** Never commit to `main` directly; move the staged work onto its own branch first.
+   `lint-all` is what CI runs, and it is the only gate that includes `validate-tools`: `nix flake check` alone never evaluates the `_`-prefixed files. It must exit clean before step 6, and `git status` must show nothing unstaged.
+
+6. **Ship it.** Never commit to `main` directly; move the staged work onto its own branch first.
 
    ```bash
    git switch -c add-tool/<toolname>
