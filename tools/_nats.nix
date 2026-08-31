@@ -1,7 +1,7 @@
 {
   name = "nats";
   meta = {
-    description = "NATS is a connective technology built for the hyper connected world, providing a simple, secure, and performant messaging system.";
+    description = "Messaging system for distributed applications";
     homepage = "https://github.com/nats-io/nats-server";
     documentation = "https://docs.nats.io";
     lastChecked = "2026-08-01";

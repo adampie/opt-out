@@ -7,7 +7,6 @@ readme="README.md"
 marker_start="<!-- tools:start -->"
 marker_end="<!-- tools:end -->"
 
-# One flake output feeds all four tables, so they cannot disagree.
 data=$(nix eval --json .#catalogue)
 
 # nix eval sorts attribute names and to_entries preserves that, so no sort here.
@@ -62,8 +61,8 @@ config_rows=$(rows '
   | .[]
 ')
 
-# Same "status is not a way out" rule as the Commands table. Counting one as an
-# opt-out here would leave a status-only tool in no table at all.
+# Counting a "status" command as an opt-out would leave a status-only tool in no
+# table at all.
 none_rows=$(rows '
   def optouts: .commands | to_entries | map(select(.key != "status"));
   to_entries
@@ -75,8 +74,8 @@ none_rows=$(rows '
   | "| [" + .key + "](" + .value.homepage + ") | " + .value.lastChecked + " |"
 ')
 
-# readme_new sits beside README.md so the closing mv is a same-filesystem rename,
-# which is atomic: an interrupted run leaves the committed README untouched.
+# readme_new sits beside README.md so the closing mv is an atomic same-filesystem
+# rename.
 # mktemp names both unpredictably, so no local process can pre-create symlinks.
 section=$(mktemp)
 readme_new=$(mktemp ./.README.XXXXXX)
@@ -118,8 +117,7 @@ trap 'rm -f "$section" "$readme_new"' EXIT
 	echo
 } >"$section"
 
-# Whole-line matching, because the awk below matches that way. A substring test
-# would disagree and take the replace branch on a near-miss, substituting nothing.
+# Whole-line matching, because the awk below matches that way.
 start_count=$(grep -c -Fx "$marker_start" "$readme" || true)
 end_count=$(grep -c -Fx "$marker_end" "$readme" || true)
 
