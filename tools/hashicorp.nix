@@ -1,7 +1,6 @@
 {
   # CHECKPOINT_DISABLE switches off the whole Checkpoint client, so it also gives
   # up upgrade notices and security bulletins across every HashiCorp product.
-  # Kept because it is the only opt-out HashiCorp offers.
   name = "hashicorp";
   meta = {
     description = "HashiCorp tools (Vagrant, Terraform, Consul, Packer, Nomad)";
