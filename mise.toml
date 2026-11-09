@@ -3,7 +3,7 @@ lockfile = true
 
 [tools]
 hk = "2.8.1"
-markdownlint-cli2 = "0.23.3"
+markdownlint-cli2 = "0.24.0"
 pkl = "0.32.2"
 shellcheck = "0.11.0"
 shfmt = "3.14.1"

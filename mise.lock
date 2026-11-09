@@ -17,7 +17,7 @@ url = "https://github.com/jdx/hk/releases/download/v2.8.1/hk-aarch64-apple-darwi
 url_api = "https://api.github.com/repos/jdx/hk/releases/assets/668781793"
 
 [[tools.markdownlint-cli2]]
-version = "0.23.3"
+version = "0.24.0"
 backend = "npm:markdownlint-cli2"
 
 [[tools.pkl]]
