@@ -7,3 +7,8 @@ result-*
 .idea/
 
 .DS_Store
+
+# devenv
+.devenv*
+devenv.local.nix
+.pre-commit-config.yaml
