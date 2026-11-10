@@ -24,23 +24,16 @@ nix flake show
 nix eval .#variables
 ```
 
-### mise tasks
+### devenv
+
+Run these inside `devenv shell`:
 
 ```bash
-mise run flake-check    # validates the flake and all tool definitions
-mise run validate-tools # validates every tool definition, including _-prefixed exclusions
-mise run fmt            # formats all Nix files
-mise run fmt-check      # fails if any Nix file is unformatted
-mise run lint           # lints Nix files with statix and deadnix
-mise run lint-md        # lints Markdown files
-mise run lint-sh        # lints shell scripts with shellcheck and shfmt
-mise run lint-toml      # lints TOML files with taplo
-mise run lint-yaml      # lints YAML files with yamllint
-mise run lint-pkl       # lints Pkl files
-mise run lint-zizmor    # audits GitHub Actions workflows with zizmor
-mise run lint-all       # runs every check above; this is what CI runs
-mise run flake-update   # updates all flake inputs
-mise run readme-tables  # regenerates the opt-out tables in README.md
+devenv test        # flake check, validate-tools, then every git hook on every file; this is what CI runs
+validate-tools     # validates every tool definition, including _-prefixed exclusions
+readme-tables      # regenerates the opt-out tables in README.md
+pre-commit run -a  # runs every git hook on every file, applying formatter fixes
+devenv update      # updates devenv.lock
 ```
 
 ## Architecture
@@ -68,29 +61,23 @@ The platform-specific variable attribute differs by target:
 
 2. Run `git add tools/<toolname>.nix`. Nix flakes operate on git-tracked files, so untracked files are silently ignored by `nix eval` and `nix flake check`.
 
-3. Run `mise run readme-tables` to update the README tables. This covers excluded (`_`-prefixed) tools too, so it is worth running whichever shape the tool turned out to be.
+3. Run `readme-tables` to update the README tables. This covers excluded (`_`-prefixed) tools too, so it is worth running whichever shape the tool turned out to be.
 
 The `name` field becomes the attribute name in all module outputs. No changes to `flake.nix` are needed, as `import-tree` picks up new files automatically.
 
 ### Key files
 
-- `flake.nix`: all logic for assembling tool definitions into flake outputs, plus the lint devShell
+- `flake.nix`: all logic for assembling tool definitions into flake outputs
 - `tools/*.nix`: one file per tool, each a plain Nix attrset (not a function)
 - `tools/README.md`: the five tool templates, and the single source of truth for tool file shape
 - `scripts/readme-tables.sh`: generates the `<!-- tools:start -->`/`<!-- tools:end -->` section in README.md from the `catalogue` flake output, one table each for environment variables, commands, config, and tools with no opt-out at all
-- `hk.pkl`: git hooks config (pre-commit linters with auto-fix, pre-push flake check, README table generation)
-- `mise.toml`: task runner for formatting, linting, flake operations, and README generation
-- `mise.lock`: pins the exact version, checksum and download URL of every mise tool per platform
-- `.github/workflows/ci.yml`: runs `mise run lint-all` on push to main and on pull requests
+- `devenv.nix`: dev packages, the `readme-tables` and `validate-tools` scripts, git hooks (pre-commit linters, pre-push flake check, README table generation) and the `devenv test` body
+- `devenv.yaml` and `devenv.lock`: devenv inputs, kept apart from `flake.lock` so flake consumers never pull in lint tooling
+- `.github/workflows/ci.yml`: runs `devenv test` on push to main and on pull requests
 
 ### Tooling versions
 
-Two mechanisms, split by what each ecosystem can pin:
-
-- Tools with a mise backend (shellcheck, shfmt, taplo, markdownlint-cli2, pkl, hk, zizmor) are pinned to exact versions in `mise.toml` and locked in `mise.lock`.
-- nixfmt, statix, deadnix and yamllint have no mise backend, so they live in the flake's `devShells.default` and are pinned by `flake.lock`. Tasks that need them wrap themselves in `nix develop -c`, so no task assumes an ambient nixpkgs channel.
-
-Run `mise lock --platform linux-x64,macos-arm64` after changing a pinned version, so CI's platform stays locked alongside the local one.
+Every linter comes from the nixpkgs pinned in `devenv.lock`; `devenv update` moves them. CI installs a fixed devenv release in `.github/workflows/ci.yml`, so bump it alongside a local devenv upgrade.
 
 ### Excluded tools
 

@@ -27,17 +27,16 @@ Investigate the tool named in $ARGUMENTS and determine whether it qualifies for 
    - `lastChecked` is today, `YYYY-MM-DD`.
    - `hasTelemetry` stays `true` for anything with telemetry, including tools excluded for only having a CLI or config opt-out. Set `false` only after confirming there is none.
 
-5. **Stage, regenerate, validate.** Flakes ignore untracked files and `mise run fmt` formats what `git ls-files` reports, so the new file has to be staged before either runs, and staged again afterwards to pick up the formatter's rewrite. Regenerate the README whether the tool was added or excluded: the tables cover commands, config and tools with no opt-out at all.
+5. **Stage, regenerate, validate.** Flakes and the git hooks ignore untracked files, so the new file has to be staged before either runs, and staged again afterwards to pick up the formatter's rewrite. The hooks regenerate the README whether the tool was added or excluded: the tables cover commands, config and tools with no opt-out at all.
 
    ```bash
    git add tools/<filename>.nix
-   mise run fmt
-   mise run readme-tables
+   devenv shell -- pre-commit run -a
    git add tools/<filename>.nix README.md
-   mise run lint-all
+   devenv test
    ```
 
-   `lint-all` is what CI runs, and it is the only gate that includes `validate-tools`: `nix flake check` alone never evaluates the `_`-prefixed files. It must exit clean before step 6, and `git status` must show nothing unstaged.
+   `devenv test` is what CI runs, and it is the only gate that includes `validate-tools`: `nix flake check` alone never evaluates the `_`-prefixed files. It must exit clean before step 6, and `git status` must show nothing unstaged.
 
 6. **Ship it.** Never commit to `main` directly; move the staged work onto its own branch first.
 
