@@ -46,6 +46,7 @@ Set these to opt out. This is what the Nix modules above do for you.
 | [cocoapods](https://github.com/CocoaPods/CocoaPods) | `COCOAPODS_DISABLE_STATS=true` | 2026-08-01 |
 | [coder](https://github.com/coder/coder) | `CODER_DISABLE_NETWORK_TELEMETRY=true` | 2026-08-01 |
 | [coder](https://github.com/coder/coder) | `CODER_TELEMETRY_ENABLE=false` | 2026-08-01 |
+| [dagger](https://github.com/dagger/dagger) | `DO_NOT_TRACK=1` | 2026-11-21 |
 | [devbox](https://github.com/jetify-com/devbox) | `DO_NOT_TRACK=1` | 2026-08-01 |
 | [devpod](https://github.com/loft-sh/devpod) | `DEVPOD_DISABLE_TELEMETRY=true` | 2026-08-01 |
 | [do-not-track](https://github.com/adampie/opt-out) | `DO_NOT_TRACK=1` | 2026-08-01 |
